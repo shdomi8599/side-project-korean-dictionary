@@ -1,38 +1,54 @@
-.App {
-  text-align: center;
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* App */
+.app {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+/* ChampList */
+.champ_list {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+
+
+/* ChampCard */
+
+.champ_card {
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    flex-direction: column;
+    width: 90px;
+    height: auto;
+    background-color: gray;
+    border-radius: 5px;
+    color: aliceblue;
+    box-shadow: 2px 2px 2px 2px black;
+    margin: 3px;
+    font-size: 5px;
+    /* font-size: 10px; */
 }
 
-.App-link {
-  color: #61dafb;
+.champ_card div {
+    padding: 2px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.champ_img {
+    width: 50px;
+}
+
+.stat_img{
+    width: 10px;
+    padding: 0px 1px;
+    margin: 0px 2px;
 }

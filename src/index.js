@@ -2,16 +2,27 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
-import reportWebVitals from './reportWebVitals';
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+let champData;
+
+function currentloginid() {
+  return fetch('http://ddragon.leagueoflegends.com/cdn/13.1.1/data/ko_KR/champion.json', {
+    method: 'GET',
+  })
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (data) {
+      champData = JSON.stringify(data);
+      return champData;
+    })
+}
+currentloginid()
+  .then(champData => champData = Object.values(JSON.parse(champData).data))
+  .then(champData => root.render(
+    <App champData={champData} />
+  ));
+
