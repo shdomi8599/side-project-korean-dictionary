@@ -5,10 +5,11 @@ import App from './App';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-
 let champData;
+const rand162 = Math.floor(Math.random() * 163);
 
-function currentloginid() {
+
+function riotApiData() {
   return fetch('http://ddragon.leagueoflegends.com/cdn/13.1.1/data/ko_KR/champion.json', {
     method: 'GET',
   })
@@ -20,9 +21,9 @@ function currentloginid() {
       return champData;
     })
 }
-currentloginid()
+riotApiData()
   .then(champData => champData = Object.values(JSON.parse(champData).data))
   .then(champData => root.render(
-    <App champData={champData} />
+    <App champData={champData} backImg={{ backgroundImage: `url(http://ddragon.leagueoflegends.com/cdn/img/champion/splash/${champData[rand162].id}_0.jpg)` }} />
   ));
 

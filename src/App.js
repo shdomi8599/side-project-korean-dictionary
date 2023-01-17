@@ -1,19 +1,38 @@
 import './App.css';
-import { useEffect, useState, useMemo, useRef } from 'react';
-import ChampList from './components/champList';
+import './bootstrap.min.css'
+import { useEffect, useState, useMemo, useRef,useLocation } from 'react';
+
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import HeaderNav from './components/headerNav';
+import New from './pages/New';
+import Edit from './pages/Edit';
+import Board from './pages/Board';
+import Login from './pages/Login';
+import SignUp from './pages/SignUp';
+import Home from './pages/Home';
+import MyFeedback from './pages/MyFeedback';
+import ChampFeedback from './pages/ChampFeedback';
+
+
+function App({ champData, backImg }) {
 
 
 
-function App({ champData }) {
-const backImg = {}
-
-  // console.log(onepick)
+  //NEW는 게시판 새글임
   return (
-    <div className='app'>
-      {/* <HeaderNav /> */}
-      <ChampList champData={champData} />
-    </div>
+    <BrowserRouter>
+      <HeaderNav />
+      <Routes>
+        <Route path='/' element={<Home champData={champData} backImg={backImg} />} />
+        <Route path='/champFeedback/:id'  element={<ChampFeedback />} />
+        <Route path='/signUp' element={<SignUp />} />
+        <Route path='/login' element={<Login />} />
+        <Route path='/new/:id' element={<New />} />
+        <Route path='/edit/:id' element={<Edit />} />
+        <Route path='/board' element={<Board />} />
+        <Route path='/myFeedback' element={<MyFeedback />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 

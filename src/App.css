@@ -1,22 +1,40 @@
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+@font-face {
+  font-family: 'NEXON Lv1 Gothic OTF';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/NEXON Lv1 Gothic OTF.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
 }
 
-/* App */
-.app {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'NEXON Lv1 Gothic OTF';
+
 }
+
+
+
+/* back_Img */
+.back_Img {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-repeat: no-repeat;
+  background-position: bottom;
+  background-size: 100% 100%;
+  opacity: 0.85;
+}
+
+
+
 
 /* ChampList */
 .champ_list {
-    display: grid;
-    grid-template-columns: repeat(12, 1fr);
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
 }
 
 
@@ -24,31 +42,159 @@
 /* ChampCard */
 
 .champ_card {
-    display: flex;
-    align-items: center;
-    justify-items: center;
-    flex-direction: column;
-    width: 90px;
-    height: auto;
-    background-color: gray;
-    border-radius: 5px;
-    color: aliceblue;
-    box-shadow: 2px 2px 2px 2px black;
-    margin: 3px;
-    font-size: 5px;
-    /* font-size: 10px; */
+  display: flex;
+  align-items: center;
+  justify-items: center;
+  flex-direction: column;
+  width: 70px;
+  height: auto;
+  background-color: rgb(201, 197, 197);
+  border-radius: 5px;
+  color: black;
+  box-shadow: 1px 1px 1px 1px rgb(163, 161, 161);
+  margin: 3px;
+  font-size: 12px;
+  margin: 10px;
+  opacity: 1;
+  cursor: pointer;
 }
 
 .champ_card div {
-    padding: 2px;
+  padding: 5px;
 }
 
 .champ_img {
-    width: 50px;
+  width: 50px;
+  border-radius: 50%;
 }
 
-.stat_img{
-    width: 10px;
-    padding: 0px 1px;
-    margin: 0px 2px;
+.champ_name {
+  text-align: center;
+  margin-top: -10px;
+  max-height: 20px;
+  overflow: hidden;
+}
+
+.stat_img {
+  width: 10px;
+  padding: 0px 1px;
+  margin: 0px 2px;
+}
+
+/* Navi */
+
+
+.navbar {
+  background-color: #212121;
+}
+
+nav {
+  width: 100%;
+  border-top: 3px solid rgb(66, 80, 145);
+  border-bottom: 3px solid rgb(66, 80, 145);
+  height: 90px;
+  font-size: 20px;
+
+}
+
+.nav-item {
+  padding: 0px 40px;
+  margin: 0 20px;
+  padding: 0px 10px;
+  border: none;
+  font-size: 15px;
+  color: #fff;
+  border-radius: 7px;
+  letter-spacing: 4px;
+  font-weight: 700;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background: rgb(0, 140, 255);
+  box-shadow: 0 0 25px rgb(0, 140, 255);
+}
+
+.nav-item:hover {
+  box-shadow: 0 0 5px rgb(0, 140, 255),
+    0 0 25px rgb(0, 140, 255),
+    0 0 50px rgb(0, 140, 255),
+    0 0 100px rgb(0, 140, 255);
+}
+
+.navbar-brand {
+  padding: 10px 20px;
+  border: none;
+  font-size: 17px;
+  color: #fff;
+  border-radius: 7px;
+  letter-spacing: 4px;
+  font-weight: 700;
+  /* text-transform: uppercase; */
+  transition: 0.5s;
+  background: rgb(0, 140, 255);
+  box-shadow: 0 0 25px rgb(0, 140, 255);
+}
+
+.navbar-brand:hover {
+  box-shadow: 0 0 5px rgb(0, 140, 255),
+    0 0 25px rgb(0, 140, 255),
+    0 0 50px rgb(0, 140, 255),
+    0 0 100px rgb(0, 140, 255);
+}
+
+/* button */
+button {
+  padding: 1.3em 3em;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  font-weight: 500;
+  color: #000;
+  background-color: #fff;
+  border: none;
+  border-radius: 45px;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease 0s;
+  cursor: pointer;
+  outline: none;
+}
+
+button:hover {
+  background-color: #23c483;
+  box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
+  color: #fff;
+  transform: translateY(-7px);
+}
+
+button:active {
+  transform: translateY(-1px);
+}
+
+/* ChampFeedback */
+
+.champ_feedback {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  flex-direction: row;
+}
+
+.champ_edit {
+  border: 1px solid black;
+  width: 30%;
+  height: 60%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.champ_edit div {
+  flex: 1;
+  border: 1px solid black;
+  width: 100%;
+}
+
+.champ_class {
+  padding-right: 10px;
 }
