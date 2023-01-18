@@ -86,6 +86,7 @@
 
 .navbar {
   background-color: #212121;
+
 }
 
 nav {
@@ -94,51 +95,103 @@ nav {
   border-bottom: 3px solid rgb(66, 80, 145);
   height: 90px;
   font-size: 20px;
-
+  color: white !important;
 }
 
 .nav-item {
-  padding: 0px 40px;
+  text-align: center;
   margin: 0 20px;
-  padding: 0px 10px;
-  border: none;
-  font-size: 15px;
-  color: #fff;
-  border-radius: 7px;
-  letter-spacing: 4px;
+  min-width: 200px;
   font-weight: 700;
-  text-transform: uppercase;
-  transition: 0.5s;
-  background: rgb(0, 140, 255);
-  box-shadow: 0 0 25px rgb(0, 140, 255);
+  background: rgb(255, 255, 255);
+  color: blueviolet !important;
+  border-radius: .5rem;
+  border-bottom: 2px solid blueviolet;
+  border-right: 2px solid blueviolet;
+  border-top: 2px solid white;
+  border-left: 2px solid white;
+  transition-duration: 1s;
 }
 
 .nav-item:hover {
-  box-shadow: 0 0 5px rgb(0, 140, 255),
-    0 0 25px rgb(0, 140, 255),
-    0 0 50px rgb(0, 140, 255),
-    0 0 100px rgb(0, 140, 255);
+  border-top: 2px solid blueviolet;
+  border-left: 2px solid blueviolet;
+  border-bottom: 2px solid rgb(238, 103, 238);
+  border-right: 2px solid rgb(238, 103, 238);
+  box-shadow: rgba(240, 46, 170, 0.4) 5px 5px, rgba(240, 46, 170, 0.3) 10px 10px, rgba(240, 46, 170, 0.2) 0px 0px;
 }
 
 .navbar-brand {
-  padding: 10px 20px;
-  border: none;
-  font-size: 17px;
-  color: #fff;
+  position: relative;
+  padding: 10px 20px !important;
   border-radius: 7px;
-  letter-spacing: 4px;
-  font-weight: 700;
-  /* text-transform: uppercase; */
-  transition: 0.5s;
-  background: rgb(0, 140, 255);
-  box-shadow: 0 0 25px rgb(0, 140, 255);
+  border: 1px solid rgb(61, 106, 255);
+  font-size: 14px;
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 2px;
+  background: transparent;
+  color: #fff !important;
+  overflow: hidden;
+  box-shadow: 0 0 0 0 transparent;
+  -webkit-transition: all 0.2s ease-in;
+  -moz-transition: all 0.2s ease-in;
+  transition: all 0.2s ease-in;
 }
 
 .navbar-brand:hover {
-  box-shadow: 0 0 5px rgb(0, 140, 255),
-    0 0 25px rgb(0, 140, 255),
-    0 0 50px rgb(0, 140, 255),
-    0 0 100px rgb(0, 140, 255);
+  background: rgb(61, 106, 255);
+  box-shadow: 0 0 30px 5px rgba(0, 142, 236, 0.815);
+  -webkit-transition: all 0.2s ease-out;
+  -moz-transition: all 0.2s ease-out;
+  transition: all 0.2s ease-out;
+}
+
+.navbar-brand:hover::before {
+  -webkit-animation: sh02 0.5s 0s linear;
+  -moz-animation: sh02 0.5s 0s linear;
+  animation: sh02 0.5s 0s linear;
+}
+
+.navbar-brand::before {
+  content: '';
+  display: block;
+  width: 0px;
+  height: 86%;
+  position: absolute;
+  top: 7%;
+  left: 0%;
+  opacity: 0;
+  background: #fff;
+  box-shadow: 0 0 50px 30px #fff;
+  -webkit-transform: skewX(-20deg);
+  -moz-transform: skewX(-20deg);
+  -ms-transform: skewX(-20deg);
+  -o-transform: skewX(-20deg);
+  transform: skewX(-20deg);
+}
+
+.navbar-brand:active {
+  box-shadow: 0 0 0 0 transparent;
+  -webkit-transition: box-shadow 0.2s ease-in;
+  -moz-transition: box-shadow 0.2s ease-in;
+  transition: box-shadow 0.2s ease-in;
+}
+
+@keyframes sh02 {
+  from {
+    opacity: 0;
+    left: 0%;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+    left: 100%;
+  }
 }
 
 /* button */
@@ -148,8 +201,8 @@ button {
   text-transform: uppercase;
   letter-spacing: 2.5px;
   font-weight: 500;
-  color: #000;
-  background-color: #fff;
+  color: rgb(255, 255, 255);
+  background-color: rgb(0, 0, 0);
   border: none;
   border-radius: 45px;
   box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
@@ -175,26 +228,91 @@ button:active {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  height: 80vh;
   flex-direction: row;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-position: bottom;
+  background-size: 100% 100%;
+  opacity: 0.95;
 }
 
 .champ_edit {
-  border: 1px solid black;
   width: 30%;
-  height: 60%;
+  height: 80%;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  font-size: 25px;
+
 }
 
 .champ_edit div {
-  flex: 1;
-  border: 1px solid black;
+  text-align: center;
+  border-bottom: 1px solid black;
   width: 100%;
+  height: 254px;
+  margin: 0 auto;
+  background-color: #011522;
+  color: white;
+  z-index: 1;
 }
 
-.champ_class {
-  padding-right: 10px;
+.with_btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-image: url(/src/img/pnz-lor-18.jpg);
+  background-repeat: no-repeat;
+  background-position: bottom;
+  background-size: 100% 100%;
+}
+
+.home_btn {
+  height: 10vh;
+  margin-top: 10vh;
+
+  border: 0.5px solid white;
+}
+
+.champ_stats_name{
+  flex: 0.8;
+}
+
+.champ_stats_position{
+  flex: 1.2;
+}
+
+.champ_stats_spell{
+  flex: 1;
+}
+
+.champ_stats_item{
+  flex: 1;
+}
+
+
+.champ_edit .champ_stats_feedback{
+  flex: 5;
+  border-bottom: none;
+}
+
+.champ_loading_img{
+  height: 600px;
+}
+
+.spell{
+  width: 50px;
+  height: 50px;
+  display: inline-block;
+  margin: 0 5px;
+}
+
+.champ_edit .champ_stats_spell {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
 }
