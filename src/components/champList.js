@@ -1,14 +1,11 @@
 import ChampCard from "./champCard"
 import { useNavigate, useSearchParams } from "react-router-dom"
 import Edit from "../pages/Edit"
+import React from "react"
 
 const ChampList = ({champData}) => {
-    // console.log(champData)
 
-    // console.log(PickChamp)
-    const navigate = useNavigate();
-
-    const [searchParams,setSearchParams] = useSearchParams();
+    // const [searchParams,setSearchParams] = useSearchParams();
     
 
     return <div className="champ_list">
@@ -16,4 +13,4 @@ const ChampList = ({champData}) => {
     </div>
 }
 
-export default ChampList
+export default React.memo(ChampList)

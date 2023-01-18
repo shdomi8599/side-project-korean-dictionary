@@ -1,12 +1,13 @@
-import { useParams, useLocation, useState,useNavigate } from "react-router-dom"
+import { useState } from "react";
+import { useParams, useLocation, useNavigate } from "react-router-dom"
+import SpellCard from "../components/SpellCard";
+import React from "react";
 
-
-const ChampFeedback = ({ parentFunction }) => {
+const ChampFeedback = () => {
     const { id } = useParams();
     const location = useLocation();
     const navigate = useNavigate();
 
-    // console.log(location.state)
     const tagsArr = [];
     location.state.tags.map(x => {
         if (x === 'Fighter') {
@@ -28,13 +29,24 @@ const ChampFeedback = ({ parentFunction }) => {
             tagsArr.push('서포터')
         }
     })
-    console.log(tagsArr)
+
+    const [spellTogle,setSpellTogle] = useState(true)
+
+    const spellTogleHandler = () => {
+        setSpellTogle(!spellTogle)
+    }
+
+    if(spellTogle === true){
+        console.log('hi')
+    }
+
     return (
         <div className="with_btn">
-            <button className="home_btn" onClick={()=>{navigate(-1)}}>홈으로가기</button>
+            {spellTogle?<></>:<SpellCard/>}
+            <button className="home_btn" onClick={()=>{navigate(-1);}}>홈으로가기</button>
             <div className="champ_feedback" >
                 <div>
-                    <img className="champ_loading_img" src={`http://ddragon.leagueoflegends.com/cdn/img/champion/loading/${location.state.id}_0.jpg`} />
+                    <img className="champ_loading_img" alt='' src={`http://ddragon.leagueoflegends.com/cdn/img/champion/loading/${location.state.id}_0.jpg`} />
                 </div>
                 <div className="champ_edit">
                     <div className="champ_edit champ_stats_name">
@@ -43,9 +55,9 @@ const ChampFeedback = ({ parentFunction }) => {
                     <div className="champ_edit champ_stats_position">
                     {tagsArr.map(x => <span>{x}</span>)}
                     </div>
-                    <div className="champ_edit champ_stats_spell">
-                    <img className="spell" src={require('../img/spell/SummonerBarrier.png')} alt=""/>
-                    <img className="spell" src={require('../img/spell/SummonerBoost.png')} alt=""/>
+                    <div className="champ_edit champ_stats_spell"  
+                    onClick={spellTogleHandler}>
+                        스펠을 선택해주세요!
                     </div>
                     <div className="champ_edit champ_stats_item">
                         아이템 고르는 창
@@ -59,4 +71,4 @@ const ChampFeedback = ({ parentFunction }) => {
     )
 }
 
-export default ChampFeedback
+export default React.memo(ChampFeedback)

@@ -1,5 +1,4 @@
-import { useNavigate, useSearchParams } from "react-router-dom"
-
+import { useNavigate } from "react-router-dom"
 
 const ChampCard = ({ PickChamp }) => {
     if (PickChamp.name === '누누와 윌럼프') {
@@ -20,9 +19,6 @@ const ChampCard = ({ PickChamp }) => {
 
     const navigate = useNavigate();
 
-    const [searchParams, setSearchParams] = useSearchParams();
-
-
 
     return <div className="champ_card" onClick={() => {
         navigate(`/champFeedback/${PickChamp.key}`,
@@ -33,7 +29,7 @@ const ChampCard = ({ PickChamp }) => {
             })
     }}>
         <div>
-            <img className="champ_img" src={`http://ddragon.leagueoflegends.com/cdn/13.1.1/img/champion/${PickChamp.image.full}`} />
+            <img className="champ_img" src={`http://ddragon.leagueoflegends.com/cdn/13.1.1/img/champion/${PickChamp.image.full}`} alt=''/>
         </div>
         <div className="champ_name">
             {PickChamp.name}
