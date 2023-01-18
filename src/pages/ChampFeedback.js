@@ -30,34 +30,42 @@ const ChampFeedback = () => {
         }
     })
 
-    const [spellTogle,setSpellTogle] = useState(true)
+    const [spellTogle, setSpellTogle] = useState(true)
+
+
 
     const spellTogleHandler = () => {
         setSpellTogle(!spellTogle)
     }
 
-    if(spellTogle === true){
-        console.log('hi')
-    }
 
     return (
         <div className="with_btn">
-            {spellTogle?<></>:<SpellCard/>}
-            <button className="home_btn" onClick={()=>{navigate(-1);}}>홈으로가기</button>
+            {spellTogle ? <></> : <SpellCard spellTogleHandler={spellTogleHandler}/>}
+            <button className="home_btn" onClick={() => { navigate(-1); }}>홈으로가기</button>
             <div className="champ_feedback" >
                 <div>
                     <img className="champ_loading_img" alt='' src={`http://ddragon.leagueoflegends.com/cdn/img/champion/loading/${location.state.id}_0.jpg`} />
                 </div>
                 <div className="champ_edit">
                     <div className="champ_edit champ_stats_name">
-                      {location.state.name}
+                        {location.state.name}
                     </div>
                     <div className="champ_edit champ_stats_position">
-                    {tagsArr.map(x => <span>{x}</span>)}
+                        {tagsArr.map(x => <span>{x}</span>)}
                     </div>
-                    <div className="champ_edit champ_stats_spell"  
-                    onClick={spellTogleHandler}>
-                        스펠을 선택해주세요!
+                    <div className="champ_edit champ_stats_spell"
+                        onClick={spellTogleHandler}>
+                        {localStorage.src2 !== undefined ?
+                            <span>
+                                <span className="mini_spell">
+                                    <img src={localStorage.src1} alt="" />
+                                </span>
+                                <span className="mini_spell">
+                                    <img src={localStorage.src2} alt="" />
+                                </span>
+                            </span> :
+                            <span>스펠을 선택해주세요!</span>}
                     </div>
                     <div className="champ_edit champ_stats_item">
                         아이템 고르는 창
@@ -70,5 +78,5 @@ const ChampFeedback = () => {
         </div>
     )
 }
-
+//스펠을 선택해주세요!
 export default React.memo(ChampFeedback)

@@ -1,44 +1,42 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
+import SpellCardImg from './SpellCardImg';
 
-const SpellCard = () => {
 
+const SpellCard = ({spellTogleHandler}) => {
 
+    const spellSrcArr = [
+        require('../img/spell/SummonerBarrier.png'),
+        require('../img/spell/SummonerBoost.png'),
+        require('../img/spell/SummonerDot.png'),
+        require('../img/spell/SummonerExhaust.png'),
+        require('../img/spell/SummonerFlash.png'),
+        require('../img/spell/SummonerHaste.png'),
+        require('../img/spell/SummonerHeal.png'),
+        require('../img/spell/SummonerMana.png'),
+        require('../img/spell/SummonerSmite.png'),
+        require('../img/spell/SummonerTeleport.png'),
+    ]
+
+    const [spellCount, setSpellCount] = useState(0)
+
+    const spellCountHandler = () => {
+        if (spellCount < 2) {
+            setSpellCount(spellCount + 1)
+        }
+    }
+
+    const reverseSpellCountHandler = () => {
+        if (spellCount < 2) {
+            setSpellCount(spellCount - 1)
+        }
+    }
 
     return <div className='spell_card'>
-        <div>
-            <div className='spell_box'>
-                <img className="spell" src={require('../img/spell/SummonerBarrier.png')} alt="" />
-            </div>
-            <div className='spell_box'>
-                <img className="spell" src={require('../img/spell/SummonerBoost.png')} alt="" />
-            </div>
-            <div className='spell_box'>
-                <img className="spell" src={require('../img/spell/SummonerDot.png')} alt="" />
-            </div>
-            <div className='spell_box'>
-                <img className="spell" src={require('../img/spell/SummonerExhaust.png')} alt="" />
-            </div>
-            <div className='spell_box'>
-                <img className="spell" src={require('../img/spell/SummonerFlash.png')} alt="" />
-            </div>
-        </div>
-        <div>
-            <div className='spell_box'>
-                <img className="spell" src={require('../img/spell/SummonerHaste.png')} alt="" />
-            </div>
-            <div className='spell_box'>
-                <img className="spell" src={require('../img/spell/SummonerHeal.png')} alt="" />
-            </div>
-            <div className='spell_box'>
-                <img className="spell" src={require('../img/spell/SummonerMana.png')} alt="" />
-            </div>
-            <div className='spell_box'>
-                <img className="spell" src={require('../img/spell/SummonerSmite.png')} alt="" />
-            </div>
-            <div className='spell_box'>
-                <img className="spell" src={require('../img/spell/SummonerTeleport.png')} alt="" />
-            </div>
-        </div>
+        {spellCount < 2 ? spellSrcArr.map(x => <SpellCardImg src={x} key={x}
+            spellCount={spellCount} spellCountHandler={spellCountHandler}
+            reverseSpellCountHandler={reverseSpellCountHandler}
+            spellTogleHandler={spellTogleHandler}
+              />) : <></>}
     </div>
 }
 
