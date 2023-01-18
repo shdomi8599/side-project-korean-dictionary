@@ -1,6 +1,4 @@
 import ChampList from "../components/champList";
-import SpellCard from "../components/SpellCard";
-
 
 const Home = ({champData, backImg}) => {
     return (

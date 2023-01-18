@@ -1,9 +1,8 @@
 import './App.css';
 import './bootstrap.min.css'
-import { useEffect, useState, useMemo, useRef,useLocation } from 'react';
+import { useEffect, useState, useMemo, useRef, useLocation } from 'react';
 
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import HeaderNav from './components/headerNav';
 import New from './pages/New';
 import Edit from './pages/Edit';
 import Board from './pages/Board';
@@ -12,6 +11,7 @@ import SignUp from './pages/SignUp';
 import Home from './pages/Home';
 import MyFeedback from './pages/MyFeedback';
 import ChampFeedback from './pages/ChampFeedback';
+import AllNav from './components/AllNav';
 
 
 function App({ champData, backImg }) {
@@ -21,10 +21,10 @@ function App({ champData, backImg }) {
   //NEW는 게시판 새글임
   return (
     <BrowserRouter>
-      <HeaderNav />
+    <AllNav/>
       <Routes>
         <Route path='/' element={<Home champData={champData} backImg={backImg} />} />
-        <Route path='/champFeedback/:id'  element={<ChampFeedback />} />
+        <Route path='/champFeedback/:id' element={<ChampFeedback />} />
         <Route path='/signUp' element={<SignUp />} />
         <Route path='/login' element={<Login />} />
         <Route path='/new/:id' element={<New />} />
