@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState,useRef } from "react";
 import { useParams, useLocation, useNavigate } from "react-router-dom"
 import SpellCard from "../components/SpellCard";
 import React from "react";
@@ -38,10 +38,17 @@ const ChampFeedback = () => {
         setSpellTogle(!spellTogle)
     }
 
+  const spellCardList = document.getElementsByClassName('spell_card');
 
     return (
-        <div className="with_btn">
-            {spellTogle ? <></> : <SpellCard spellTogleHandler={spellTogleHandler}/>}
+        <div className="with_btn"
+        //  onClick={!spellTogle ?  
+        //스펠창이 켜졌을 때 스펠창 밖을 누르면 창이 꺼지게 만드는 것을 구현하려고했으나 일단 실패
+        //     ()=>{setSpellTogle(!spellTogle)}
+        //     :()=>{}}
+            >
+            {spellTogle ? <></> : <SpellCard spellTogleHandler={spellTogleHandler} />}
+      
             <button className="home_btn" onClick={() => { navigate(-1); }}>홈으로가기</button>
             <div className="champ_feedback" >
                 <div>

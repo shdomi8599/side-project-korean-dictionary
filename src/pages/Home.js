@@ -1,9 +1,9 @@
 import ChampList from "../components/champList";
 
-const Home = ({champData, backImg}) => {
+const Home = ({champData, backImg,}) => {
     return (
         <div className='back_Img'style={backImg} >
-      <ChampList champData={champData} />
+      <ChampList champData={champData}/>
       </div>
     )
 }

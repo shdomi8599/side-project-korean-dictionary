@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom"
 
-const ChampCard = ({ PickChamp }) => {
+const ChampCard = ({ PickChamp, }) => {
     if (PickChamp.name === '누누와 윌럼프') {
         PickChamp.name = '누누'
     }
@@ -17,8 +17,8 @@ const ChampCard = ({ PickChamp }) => {
         PickChamp.name = '블리츠'
     }
 
-    const navigate = useNavigate();
 
+    const navigate = useNavigate();
 
     return <div className="champ_card" onClick={() => {
         navigate(`/champFeedback/${PickChamp.key}`,
@@ -29,7 +29,7 @@ const ChampCard = ({ PickChamp }) => {
             })
     }}>
         <div>
-            <img className="champ_img" src={`http://ddragon.leagueoflegends.com/cdn/13.1.1/img/champion/${PickChamp.image.full}`} alt=''/>
+            <img className="champ_img" src={`http://ddragon.leagueoflegends.com/cdn/13.1.1/img/champion/${PickChamp.image.full}`} alt='' />
         </div>
         <div className="champ_name">
             {PickChamp.name}

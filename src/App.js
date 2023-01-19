@@ -17,11 +17,10 @@ import AllNav from './components/AllNav';
 function App({ champData, backImg }) {
 
 
-
   //NEW는 게시판 새글임
   return (
     <BrowserRouter>
-    <AllNav/>
+      <AllNav />
       <Routes>
         <Route path='/' element={<Home champData={champData} backImg={backImg} />} />
         <Route path='/champFeedback/:id' element={<ChampFeedback />} />

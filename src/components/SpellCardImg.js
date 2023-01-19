@@ -29,6 +29,7 @@ const SpellCardImg = ({ src, spellCountHandler, reverseSpellCountHandler, spellC
     const reverseTogle = () => {
         reverseSpellCountHandler();
         imgTogle();
+        localStorage.clear()
     }
 
     return <div className={spellImgTogle ?
