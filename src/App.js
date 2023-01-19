@@ -14,10 +14,12 @@ import ChampFeedback from './pages/ChampFeedback';
 import AllNav from './components/AllNav';
 
 
-function App({ champData, backImg }) {
+ function App({ champData, backImg,itemData }) {
+  
 
 
-  //NEW는 게시판 새글임
+const itemNum = Object.keys(itemData.data)
+
   return (
     <BrowserRouter>
       <AllNav />
@@ -25,7 +27,7 @@ function App({ champData, backImg }) {
         <Route path='/' element={<Home champData={champData} backImg={backImg} />} />
         <Route path='/champFeedback/:id' element={<ChampFeedback />} />
         <Route path='/signUp' element={<SignUp />} />
-        <Route path='/login' element={<Login />} />
+        <Route path='/login' element={<Login/>} />
         <Route path='/new/:id' element={<New />} />
         <Route path='/edit/:id' element={<Edit />} />
         <Route path='/board' element={<Board />} />

@@ -2,6 +2,7 @@ import { useState,useRef } from "react";
 import { useParams, useLocation, useNavigate } from "react-router-dom"
 import SpellCard from "../components/SpellCard";
 import React from "react";
+import ItemImgList from "../components/itemImgList";
 
 const ChampFeedback = () => {
     const { id } = useParams();
@@ -30,6 +31,22 @@ const ChampFeedback = () => {
         }
     })
 
+    if (location.state.name === '누누') {
+        location.state.name = '누누와 윌럼프'
+    }
+    if (location.state.name === '트 페') {
+        location.state.name = '트위스티드 페이트'
+    }
+    if (location.state.name === '레나타') {
+        location.state.name = '레나타 글라스크'
+    }
+    if (location.state.name === '솔') {
+        location.state.name = '아우렐리온 솔'
+    }
+    if (location.state.name === '블리츠') {
+        location.state.name = '블리츠크랭크'
+    }
+
     const [spellTogle, setSpellTogle] = useState(true)
 
 
@@ -48,6 +65,7 @@ const ChampFeedback = () => {
         //     :()=>{}}
             >
             {spellTogle ? <></> : <SpellCard spellTogleHandler={spellTogleHandler} />}
+            {false ? <></>: <ItemImgList />}
       
             <button className="home_btn" onClick={() => { navigate(-1); }}>홈으로가기</button>
             <div className="champ_feedback" >

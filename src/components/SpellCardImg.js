@@ -4,8 +4,6 @@ import { useState } from "react";
 
 const SpellCardImg = ({ src, spellCountHandler, reverseSpellCountHandler, spellCount, spellTogleHandler }) => {
 
-
-
     const [spellImgTogle, setImgSpellTogel] = useState(false);
 
     const imgTogle = () => {

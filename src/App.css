@@ -55,7 +55,7 @@
   margin: 3px;
   font-size: 12px;
   margin: 10px;
-  opacity: 0.95;
+  opacity: 0.9;
   cursor: pointer;
 }
 
@@ -237,7 +237,7 @@ button:active {
   margin: 0px 10px;
 }
 
-.mini_spell img  {
+.mini_spell img {
   width: 50px;
 }
 
@@ -294,8 +294,8 @@ button:active {
   margin-top: 10vh;
   border-radius: 10px;
   border: 0.5px solid white;
-padding: 0px 30px;
-font-size: 20px;
+  padding: 0px 30px;
+  font-size: 20px;
 
 }
 
@@ -368,4 +368,40 @@ font-size: 20px;
 
 .select_spell {
   box-shadow: 0 0 20px 5px rgba(255, 255, 255, 0.615);
+}
+
+/* Item Card Img */
+
+.item_card_img {
+  display: flex;
+  justify-content: start;
+  align-items: start;
+  flex-direction: row;
+  position: absolute;
+  top: 25%;
+  left: 25%;
+  z-index: 1;
+  opacity: 0.9;
+  background-color: #011522;
+  border-radius: 10px;
+}
+
+.item_card_img div {
+  display: grid;
+  grid-template-columns: repeat(7, 0fr);
+}
+
+.item_card_list {
+  margin: 10px 0;
+}
+
+.item_img {
+  margin: 3px;
+  border-radius: 10%;
+}
+
+.item_setting {
+  display: flex !important;
+  flex-direction: column;
+
 }

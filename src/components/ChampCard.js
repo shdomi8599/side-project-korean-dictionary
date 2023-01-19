@@ -16,8 +16,7 @@ const ChampCard = ({ PickChamp, }) => {
     if (PickChamp.name === '블리츠크랭크') {
         PickChamp.name = '블리츠'
     }
-
-
+    
     const navigate = useNavigate();
 
     return <div className="champ_card" onClick={() => {
