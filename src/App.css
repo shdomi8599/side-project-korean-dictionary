@@ -86,7 +86,7 @@
 
 .navbar {
   background-color: #212121;
-
+  z-index: 3;
 }
 
 nav {
@@ -380,10 +380,11 @@ button:active {
   position: absolute;
   top: 25%;
   left: 25%;
-  z-index: 1;
+  z-index: 3;
   opacity: 0.9;
   background-color: #011522;
   border-radius: 10px;
+
 }
 
 .item_card_img div {
@@ -404,4 +405,14 @@ button:active {
   display: flex !important;
   flex-direction: column;
 
+}
+
+/*Block Display  */
+
+.block_display {
+  z-index: 2;
+  position: absolute;
+  width: 100%;
+  height: 936px;
+  left: 0%;
 }

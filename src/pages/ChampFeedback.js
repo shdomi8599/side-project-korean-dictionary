@@ -48,14 +48,27 @@ const ChampFeedback = () => {
     }
 
     const [spellTogle, setSpellTogle] = useState(true)
+    const [itemTogle, setItemTogle] = useState(true)
 
 
 
     const spellTogleHandler = () => {
         setSpellTogle(!spellTogle)
     }
+    const itemTogleHandler = () => {
+        setItemTogle(!itemTogle)
+    }
 
-  const spellCardList = document.getElementsByClassName('spell_card');
+
+    const spellBlockHandler = () => {
+        setSpellTogle(!spellTogle)
+    }
+
+    const itemBlockHandler = () => {
+        setItemTogle(!itemTogle)
+    }
+
+
 
     return (
         <div className="with_btn"
@@ -64,8 +77,8 @@ const ChampFeedback = () => {
         //     ()=>{setSpellTogle(!spellTogle)}
         //     :()=>{}}
             >
-            {spellTogle ? <></> : <SpellCard spellTogleHandler={spellTogleHandler} />}
-            {false ? <></>: <ItemImgList />}
+            {spellTogle ? <></> : <SpellCard spellTogleHandler={spellTogleHandler} spellBlockHandler={spellBlockHandler}/>}
+            {itemTogle ? <></>: <ItemImgList itemBlockHandler={itemBlockHandler} />}
       
             <button className="home_btn" onClick={() => { navigate(-1); }}>홈으로가기</button>
             <div className="champ_feedback" >
@@ -92,7 +105,7 @@ const ChampFeedback = () => {
                             </span> :
                             <span>스펠을 선택해주세요!</span>}
                     </div>
-                    <div className="champ_edit champ_stats_item">
+                    <div className="champ_edit champ_stats_item" onClick={itemTogleHandler}>
                         아이템 고르는 창
                     </div>
                     <div className="champ_edit champ_stats_feedback">
@@ -103,5 +116,5 @@ const ChampFeedback = () => {
         </div>
     )
 }
-//스펠을 선택해주세요!
+
 export default React.memo(ChampFeedback)

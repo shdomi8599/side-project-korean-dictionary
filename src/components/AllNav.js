@@ -1,4 +1,6 @@
 import { Link } from "react-router-dom"
+import React from "react"
+
 
 const AllNav = () => {
     return <nav className="navbar navbar-expand-lg bg-dark">
@@ -27,4 +29,4 @@ const AllNav = () => {
 </nav>
 }
 
-export default AllNav
+export default React.memo(AllNav)
