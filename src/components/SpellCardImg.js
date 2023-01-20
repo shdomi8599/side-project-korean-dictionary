@@ -2,7 +2,7 @@ import { useState } from "react";
 
 
 
-const SpellCardImg = ({ src, spellCountHandler, reverseSpellCountHandler, spellCount, spellTogleHandler }) => {
+const SpellCardImg = ({ src, spellCountHandler, reverseSpellCountHandler, spellCount, spellTogleHandler, id }) => {
 
     const [spellImgTogle, setImgSpellTogel] = useState(false);
 
@@ -13,15 +13,19 @@ const SpellCardImg = ({ src, spellCountHandler, reverseSpellCountHandler, spellC
     const baseTogle = () => {
         spellCountHandler();
         imgTogle();
-        if (localStorage.src2 !== undefined) {
-            localStorage.clear()
+        if (localStorage.getItem(`spell2${id}`) !== null) {
+            localStorage.removeItem(`spell2${id}`);
+            localStorage.removeItem(`spell1${id}`);
         }
-        if (localStorage.src1 !== undefined) {
-            localStorage.setItem('src2', src)
+        if(localStorage.getItem(`spell1${id}`) !== null){
+            localStorage.setItem(`spell2${id}`, JSON.stringify(src))
             spellTogleHandler()
-        } else {
-            localStorage.setItem('src1', src)
         }
+        if (localStorage.getItem(`spell1${id}`) === null) {
+             localStorage.setItem(`spell1${id}`, JSON.stringify(src))
+          }
+
+
     }
 
     const reverseTogle = () => {

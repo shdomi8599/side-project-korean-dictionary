@@ -1,4 +1,4 @@
-import { useState,useRef } from "react";
+import { useState, useRef } from "react";
 import { useParams, useLocation, useNavigate } from "react-router-dom"
 import SpellCard from "../components/SpellCard";
 import React from "react";
@@ -76,10 +76,10 @@ const ChampFeedback = () => {
         //스펠창이 켜졌을 때 스펠창 밖을 누르면 창이 꺼지게 만드는 것을 구현하려고했으나 일단 실패
         //     ()=>{setSpellTogle(!spellTogle)}
         //     :()=>{}}
-            >
-            {spellTogle ? <></> : <SpellCard spellTogleHandler={spellTogleHandler} spellBlockHandler={spellBlockHandler}/>}
-            {itemTogle ? <></>: <ItemImgList itemBlockHandler={itemBlockHandler} />}
-      
+        >
+            {spellTogle ? <></> : <SpellCard spellTogleHandler={spellTogleHandler} spellBlockHandler={spellBlockHandler} id={id} />}
+            {itemTogle ? <></> : <ItemImgList itemBlockHandler={itemBlockHandler} />}
+
             <button className="home_btn" onClick={() => { navigate(-1); }}>홈으로가기</button>
             <div className="champ_feedback" >
                 <div>
@@ -94,15 +94,15 @@ const ChampFeedback = () => {
                     </div>
                     <div className="champ_edit champ_stats_spell"
                         onClick={spellTogleHandler}>
-                        {localStorage.src2 !== undefined ?
-                            <span>
-                                <span className="mini_spell">
-                                    <img src={localStorage.src1} alt="" />
-                                </span>
-                                <span className="mini_spell">
-                                    <img src={localStorage.src2} alt="" />
-                                </span>
-                            </span> :
+                        {localStorage.getItem(`spell2${id}`) !== null ?
+                                   <span>
+                                   <span className="mini_spell">
+                                       <img src={JSON.parse(localStorage.getItem(`spell1${id}`))} alt="" />
+                                   </span>
+                                   <span className="mini_spell">
+                                       <img src={JSON.parse(localStorage.getItem(`spell2${id}`))} alt="" />
+                                   </span>
+                               </span> :
                             <span>스펠을 선택해주세요!</span>}
                     </div>
                     <div className="champ_edit champ_stats_item" onClick={itemTogleHandler}>
