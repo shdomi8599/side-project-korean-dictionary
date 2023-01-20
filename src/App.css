@@ -407,6 +407,10 @@ button:active {
 
 }
 
+.select_item {
+  box-shadow: 0 0 20px 10px rgb(255, 0, 0);
+}
+
 /*Block Display  */
 
 .block_display {

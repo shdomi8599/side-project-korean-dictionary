@@ -23,6 +23,13 @@ const AllNav = () => {
                 <li className="nav-item">
                     <Link to={"/signUp"} className="nav-link active"><span>회원가입</span></Link>
                 </li>
+                <li className="nav-item">
+                    <Link to={"/"}className="nav-link active" onClick={()=>{
+                        if(window.confirm('정말 초기화 하시겠습니까?')){
+                            localStorage.clear()
+                        }
+                        }}><span>초기화하기</span></Link>
+                </li>
             </ul>
         </div>
     </div>

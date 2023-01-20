@@ -8,38 +8,35 @@ const ChampFeedback = () => {
     const { id } = useParams();
     const location = useLocation();
     const navigate = useNavigate();
-console.log(location.state.tags)
     const tagsArr = [];
-     const position = {
+
+    const position = {
         "Fighter": "근접딜러",
         "Tank": "탱커",
         "Mage": "마법딜러",
         "Marksman": "원거리 딜러",
         "Assassin": "암살자",
         "Support": "서포터"
-      }
-      
-      location.state.tags.map(x => {
+    }
+
+    location.state.tags.map(x => {
         tagsArr.push(position[x])
-      })
+    })
 
     const champName = {
-        '누누' : '누누와 윌럼프',
-        '트 페':'트위스티드 페이트',
-        '레나타' : '레나타 글라스크',
-        '솔' : '아우렐리온 솔',
-        '블리츠' : '블리츠크랭크'
+        '누누': '누누와 윌럼프',
+        '트 페': '트위스티드 페이트',
+        '레나타': '레나타 글라스크',
+        '솔': '아우렐리온 솔',
+        '블리츠': '블리츠크랭크'
     }
 
-    if (champName[location.state.name]){
-        new champName[location.state.name]
+    if (champName[location.state.name]) {
+        location.state.name = champName[location.state.name]
     }
-
 
     const [spellTogle, setSpellTogle] = useState(true)
     const [itemTogle, setItemTogle] = useState(true)
-
-
 
     const spellTogleHandler = () => {
         setSpellTogle(!spellTogle)
@@ -48,7 +45,6 @@ console.log(location.state.tags)
         setItemTogle(!itemTogle)
     }
 
-
     const spellBlockHandler = () => {
         setSpellTogle(!spellTogle)
     }
@@ -56,8 +52,6 @@ console.log(location.state.tags)
     const itemBlockHandler = () => {
         setItemTogle(!itemTogle)
     }
-
-
 
     return (
         <div className="with_btn"
@@ -84,14 +78,14 @@ console.log(location.state.tags)
                     <div className="champ_edit champ_stats_spell"
                         onClick={spellTogleHandler}>
                         {localStorage.getItem(`spell2${id}`) !== null ?
-                                   <span>
-                                   <span className="mini_spell">
-                                       <img src={JSON.parse(localStorage.getItem(`spell1${id}`))} alt="" />
-                                   </span>
-                                   <span className="mini_spell">
-                                       <img src={JSON.parse(localStorage.getItem(`spell2${id}`))} alt="" />
-                                   </span>
-                               </span> :
+                            <span>
+                                <span className="mini_spell">
+                                    <img src={JSON.parse(localStorage.getItem(`spell1${id}`))} alt="" />
+                                </span>
+                                <span className="mini_spell">
+                                    <img src={JSON.parse(localStorage.getItem(`spell2${id}`))} alt="" />
+                                </span>
+                            </span> :
                             <span>스펠을 선택해주세요!</span>}
                     </div>
                     <div className="champ_edit champ_stats_item" onClick={itemTogleHandler}>
