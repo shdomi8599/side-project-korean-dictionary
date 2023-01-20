@@ -9,20 +9,35 @@ const ItemImgList = ({ itemBlockHandler }) => {
     const supNum = [3011, 3050, 3107, 3190, 3222, 3504, 3864, 4005, 4643, 6616, 6617, 3860, 7020]
 
     const [itemCount, setItemCount] = useState(0);
+    let [itemArr, setItemArr] = useState([]);
+
+
+
 
     const itemCountHandler = {
         up: () => {
             if (itemCount < 6) {
                 setItemCount(itemCount + 1)
             }
-            console.log(itemCount)
         },
         down: () => {
             if (itemCount < 6) {
                 setItemCount(itemCount - 1)
             }
         },
-        itemCount:itemCount
+        add: (x) => {
+            setItemArr(() => {
+                itemArr.push(x)
+                return itemArr
+            })
+        },
+        remove: (x) => {
+            setItemArr(() => {
+                itemArr = itemArr.filter(item => item !== x)
+                return itemArr
+            })
+        },
+        itemCount: itemCount
     }
 
     return (
