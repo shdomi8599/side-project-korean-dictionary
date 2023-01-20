@@ -8,44 +8,33 @@ const ChampFeedback = () => {
     const { id } = useParams();
     const location = useLocation();
     const navigate = useNavigate();
-
+console.log(location.state.tags)
     const tagsArr = [];
-    location.state.tags.map(x => {
-        if (x === 'Fighter') {
-            tagsArr.push('근접딜러')
-        }
-        if (x === 'Tank') {
-            tagsArr.push('탱커')
-        }
-        if (x === 'Mage') {
-            tagsArr.push('마법딜러')
-        }
-        if (x === 'Marksman') {
-            tagsArr.push('원거리딜러')
-        }
-        if (x === 'Assassin') {
-            tagsArr.push('암살자')
-        }
-        if (x === 'Support') {
-            tagsArr.push('서포터')
-        }
-    })
+     const position = {
+        "Fighter": "근접딜러",
+        "Tank": "탱커",
+        "Mage": "마법딜러",
+        "Marksman": "원거리 딜러",
+        "Assassin": "암살자",
+        "Support": "서포터"
+      }
+      
+      location.state.tags.map(x => {
+        tagsArr.push(position[x])
+      })
 
-    if (location.state.name === '누누') {
-        location.state.name = '누누와 윌럼프'
+    const champName = {
+        '누누' : '누누와 윌럼프',
+        '트 페':'트위스티드 페이트',
+        '레나타' : '레나타 글라스크',
+        '솔' : '아우렐리온 솔',
+        '블리츠' : '블리츠크랭크'
     }
-    if (location.state.name === '트 페') {
-        location.state.name = '트위스티드 페이트'
+
+    if (champName[location.state.name]){
+        new champName[location.state.name]
     }
-    if (location.state.name === '레나타') {
-        location.state.name = '레나타 글라스크'
-    }
-    if (location.state.name === '솔') {
-        location.state.name = '아우렐리온 솔'
-    }
-    if (location.state.name === '블리츠') {
-        location.state.name = '블리츠크랭크'
-    }
+
 
     const [spellTogle, setSpellTogle] = useState(true)
     const [itemTogle, setItemTogle] = useState(true)
