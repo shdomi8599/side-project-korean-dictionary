@@ -13,7 +13,8 @@ const ItemImgList = ({ itemBlockHandler }) => {
 
 
 
-
+    //여기까지 진행함 아이템 데이터를 itemArr에 모두 저장하기 까지 성공
+    //아이디를 피드백에서 받아온다음 그 아이디와 배열값을 로컬에 저장하고 빼서 쓰는 방식으로 하면될듯?
     const itemCountHandler = {
         up: () => {
             if (itemCount < 6) {
