@@ -17,13 +17,13 @@ const SpellCardImg = ({ src, spellCountHandler, reverseSpellCountHandler, spellC
             localStorage.removeItem(`spell2${id}`);
             localStorage.removeItem(`spell1${id}`);
         }
-        if(localStorage.getItem(`spell1${id}`) !== null){
+        if (localStorage.getItem(`spell1${id}`) !== null) {
             localStorage.setItem(`spell2${id}`, JSON.stringify(src))
             spellTogleHandler()
         }
         if (localStorage.getItem(`spell1${id}`) === null) {
-             localStorage.setItem(`spell1${id}`, JSON.stringify(src))
-          }
+            localStorage.setItem(`spell1${id}`, JSON.stringify(src))
+        }
 
 
     }

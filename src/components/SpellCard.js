@@ -3,7 +3,7 @@ import SpellCardImg from './SpellCardImg';
 import React from 'react';
 import BlockDisplay from './BlockDisplay';
 
-const SpellCard = ({spellTogleHandler,spellBlockHandler,id,spellTogle}) => {
+const SpellCard = ({ spellTogleHandler, spellBlockHandler, id, spellTogle }) => {
 
     const spellSrcArr = [
         require('../img/spell/SummonerBarrier.png'),
@@ -32,18 +32,16 @@ const SpellCard = ({spellTogleHandler,spellBlockHandler,id,spellTogle}) => {
         }
     }
 
-
-
     return <div>
-            <BlockDisplay block={spellBlockHandler} id={id} spellTogle={spellTogle} spellCount={spellCount}/>
-    <div className='spell_card'>
-        {spellCount < 2 ? spellSrcArr.map(x => <SpellCardImg src={x} key={x} id={id}
-            spellCount={spellCount} spellCountHandler={spellCountHandler}
-            reverseSpellCountHandler={reverseSpellCountHandler}
-            spellTogleHandler={spellTogleHandler}
-              />) : <></>}
-    </div>
+        <BlockDisplay block={spellBlockHandler} id={id} spellTogle={spellTogle} spellCount={spellCount} />
+        <div className='spell_card'>
+            {spellCount < 2 ? spellSrcArr.map(x => <SpellCardImg src={x} key={x} id={id}
+                spellCount={spellCount} spellCountHandler={spellCountHandler}
+                reverseSpellCountHandler={reverseSpellCountHandler}
+                spellTogleHandler={spellTogleHandler}
+            />) : <></>}
         </div>
+    </div>
 }
 
 export default React.memo(SpellCard);
