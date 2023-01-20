@@ -47,20 +47,17 @@ const ChampFeedback = () => {
 
     const spellBlockHandler = () => {
         setSpellTogle(!spellTogle)
+        //count가 1인데 블락이 실행된다면 count를 0으로 바꾸고 이미지 src1값도 지워줘야함
     }
 
     const itemBlockHandler = () => {
         setItemTogle(!itemTogle)
     }
 
+
     return (
-        <div className="with_btn"
-        //  onClick={!spellTogle ?  
-        //스펠창이 켜졌을 때 스펠창 밖을 누르면 창이 꺼지게 만드는 것을 구현하려고했으나 일단 실패
-        //     ()=>{setSpellTogle(!spellTogle)}
-        //     :()=>{}}
-        >
-            {spellTogle ? <></> : <SpellCard spellTogleHandler={spellTogleHandler} spellBlockHandler={spellBlockHandler} id={id} />}
+        <div className="with_btn">
+            {spellTogle ? <></> : <SpellCard spellTogleHandler={spellTogleHandler} spellBlockHandler={spellBlockHandler} id={id} spellTogle={spellTogle}/>}
             {itemTogle ? <></> : <ItemImgList itemBlockHandler={itemBlockHandler} />}
 
             <button className="home_btn" onClick={() => { navigate(-1); }}>홈으로가기</button>

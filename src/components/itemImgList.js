@@ -31,12 +31,14 @@ const ItemImgList = ({ itemBlockHandler }) => {
                 itemArr.push(x)
                 return itemArr
             })
+            console.log(itemArr)
         },
         remove: (x) => {
             setItemArr(() => {
                 itemArr = itemArr.filter(item => item !== x)
                 return itemArr
             })
+            console.log(itemArr)
         },
         itemCount: itemCount
     }

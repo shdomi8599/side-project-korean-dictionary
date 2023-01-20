@@ -3,7 +3,7 @@ import SpellCardImg from './SpellCardImg';
 import React from 'react';
 import BlockDisplay from './BlockDisplay';
 
-const SpellCard = ({spellTogleHandler,spellBlockHandler,id}) => {
+const SpellCard = ({spellTogleHandler,spellBlockHandler,id,spellTogle}) => {
 
     const spellSrcArr = [
         require('../img/spell/SummonerBarrier.png'),
@@ -33,8 +33,9 @@ const SpellCard = ({spellTogleHandler,spellBlockHandler,id}) => {
     }
 
 
+
     return <div>
-            <BlockDisplay block={spellBlockHandler}/>
+            <BlockDisplay block={spellBlockHandler} id={id} spellTogle={spellTogle} spellCount={spellCount}/>
     <div className='spell_card'>
         {spellCount < 2 ? spellSrcArr.map(x => <SpellCardImg src={x} key={x} id={id}
             spellCount={spellCount} spellCountHandler={spellCountHandler}
