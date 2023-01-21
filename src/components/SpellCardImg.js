@@ -24,8 +24,6 @@ const SpellCardImg = ({ src, spellCountHandler, reverseSpellCountHandler, spellC
         if (localStorage.getItem(`spell1${id}`) === null) {
             localStorage.setItem(`spell1${id}`, JSON.stringify(src))
         }
-
-
     }
 
     const reverseTogle = () => {

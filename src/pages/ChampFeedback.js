@@ -3,6 +3,7 @@ import { useParams, useLocation, useNavigate } from "react-router-dom"
 import SpellCard from "../components/SpellCard";
 import React from "react";
 import ItemImgList from "../components/itemImgList";
+import MiniItem from "../components/MiniItem";
 
 const ChampFeedback = () => {
     const { id } = useParams();
@@ -47,19 +48,18 @@ const ChampFeedback = () => {
 
     const spellBlockHandler = () => {
         setSpellTogle(!spellTogle)
-        //count가 1인데 블락이 실행된다면 count를 0으로 바꾸고 이미지 src1값도 지워줘야함
     }
 
     const itemBlockHandler = () => {
         setItemTogle(!itemTogle)
     }
 
-
+    const pickedItemsNum = JSON.parse(localStorage.getItem(`item${id}`))
+    console.log(pickedItemsNum)
     return (
         <div className="with_btn">
-            {spellTogle ? <></> : <SpellCard spellTogleHandler={spellTogleHandler} spellBlockHandler={spellBlockHandler} id={id} spellTogle={spellTogle}/>}
-            {itemTogle ? <></> : <ItemImgList itemBlockHandler={itemBlockHandler} />}
-
+            {spellTogle ? <></> : <SpellCard spellTogleHandler={spellTogleHandler} spellBlockHandler={spellBlockHandler} id={id} spellTogle={spellTogle} />}
+            {itemTogle ? <></> : <ItemImgList itemBlockHandler={itemBlockHandler} id={id} itemTogleHandler={itemTogleHandler} />}
             <button className="home_btn" onClick={() => { navigate(-1); }}>홈으로가기</button>
             <div className="champ_feedback" >
                 <div>
@@ -86,7 +86,11 @@ const ChampFeedback = () => {
                             <span>스펠을 선택해주세요!</span>}
                     </div>
                     <div className="champ_edit champ_stats_item" onClick={itemTogleHandler}>
-                        아이템 고르는 창
+                        {localStorage.getItem(`item${id}`) !== null ?
+                            pickedItemsNum.map(num => <MiniItem pickedItem={num} />)
+                            :
+                            <span>아이템을 선택해주세요!</span>
+                        }
                     </div>
                     <div className="champ_edit champ_stats_feedback">
                         피드백 텍스트 창

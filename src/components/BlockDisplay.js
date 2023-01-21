@@ -9,7 +9,6 @@ const BlockDisplay = ({ block, spellTogle, spellCount, id }) => {
             localStorage.removeItem(`spell1${id}`);
         }
     }}>
-
     </div>
 }
 

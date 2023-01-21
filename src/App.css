@@ -239,6 +239,7 @@ button:active {
 
 .mini_spell img {
   width: 50px;
+  border-radius: 10px;
 }
 
 .champ_feedback {
@@ -419,4 +420,16 @@ button:active {
   width: 100%;
   height: 936px;
   left: 0%;
+}
+
+/* Mini Item */
+
+.mini_item img{
+  width: 50px;
+  margin: 0 10px ;
+  border-radius: 10px;
+}
+
+.champ_edit .champ_stats_item {
+  flex-direction: row;
 }
