@@ -225,11 +225,11 @@ button:active {
 /* ChampFeedback */
 
 
-
 .champ_edit .champ_stats_spell {
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
 }
 
 .mini_spell {
@@ -248,7 +248,7 @@ button:active {
   align-items: center;
   height: 80vh;
   flex-direction: row;
-  width: 100%;
+  width: 50%;
   background-repeat: no-repeat;
   background-position: bottom;
   background-size: 100% 100%;
@@ -256,26 +256,18 @@ button:active {
 }
 
 .champ_edit {
-  width: 30%;
+  width: 50%;
   height: 80%;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   font-size: 25px;
-
-}
-
-.champ_edit div {
-  text-align: center;
-  border-bottom: 1px solid black;
-  width: 100%;
-  height: 254px;
-  margin: 0 auto;
+  margin: 0 ;
   background-color: #011522;
   color: white;
-  z-index: 1;
 }
+
 
 .with_btn {
   display: flex;
@@ -300,8 +292,19 @@ button:active {
 
 }
 
+.champ_edit .champ_stats_name{
+  width: 100%;
+  border-bottom: 1px solid black;
+}
+
+
 .champ_stats_name {
   flex: 0.8;
+}
+
+.champ_edit .champ_stats_position{
+  width: 100%;
+  border-bottom: 1px solid black;
 }
 
 .champ_stats_position {
@@ -320,7 +323,17 @@ button:active {
 .champ_edit .champ_stats_feedback {
   flex: 5;
   border-bottom: none;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  cursor: pointer;
+  width: 100%;
+  text-align: center;
 }
+
+/* .centerText{
+  justify-content: center !important;
+} */
 
 .champ_loading_img {
   height: 600px;
@@ -338,6 +351,8 @@ button:active {
   justify-content: center;
   align-items: center;
   flex-direction: row;
+  border-bottom: 1px solid black;
+  width: 100%;
 }
 
 /* SpellCard */
@@ -415,11 +430,13 @@ button:active {
 /*Block Display  */
 
 .block_display {
-  z-index: 2;
-  position: absolute;
+  z-index: 2 ;
+  position: absolute ;
   width: 100%;
-  height: 936px;
+  height: 943px;
   left: 0%;
+  top:9%;
+  cursor:default
 }
 
 /* Mini Item */
@@ -432,4 +449,48 @@ button:active {
 
 .champ_edit .champ_stats_item {
   flex-direction: row;
+  cursor: pointer;
+  width: 100%;
+  border-bottom: 1px solid black;
+}
+
+
+/* Feedback etc */
+.fake_placeholder {
+  color: rgba(255, 255, 255, 0.2);
+}
+
+.justifyCenter {
+  justify-content: center !important;
+}
+
+.feedback_text{
+  width: 100%;
+}
+
+.feedback_textarea {
+  margin-top: 20px;
+  font-size: 25px;
+  width: 90%;
+  min-height: 290px;
+  padding: 10px;
+  z-index: 3;
+  position: relative;
+}
+
+.champFeedText {
+  text-align: left;
+  color: white;
+  padding: 10px;
+}
+
+.fake_placeholder .champFeedText {
+  display: inline-block;
+  text-align: left;
+}
+
+.reset_btn{
+  margin-top: 30px;
+  border-radius: 10px;
+  border: 1px solid white;
 }

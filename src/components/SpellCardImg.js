@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React,{ useState } from "react";
 
 
 
@@ -45,5 +45,5 @@ const SpellCardImg = ({ src, spellCountHandler, reverseSpellCountHandler, spellC
     </div>
 }
 
-export default SpellCardImg;
+export default React.memo(SpellCardImg);
 

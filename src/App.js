@@ -1,6 +1,6 @@
 import './App.css';
 import './bootstrap.min.css'
-import { useEffect, useState, useMemo, useRef, useLocation } from 'react';
+import React from 'react';
 
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import New from './pages/New';
@@ -37,6 +37,6 @@ const itemNum = Object.keys(itemData.data)
   );
 }
 
-export default App;
+export default React.memo(App);
 
 

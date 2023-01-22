@@ -1,4 +1,4 @@
-
+import React from "react";
 
 const MiniItem = ({ pickedItem }) => {
     return <span className="mini_item">
@@ -6,4 +6,4 @@ const MiniItem = ({ pickedItem }) => {
     </span>
 }
 
-export default MiniItem;
+export default React.memo(MiniItem);

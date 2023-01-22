@@ -1,7 +1,7 @@
 import ItemImgCard from "../components/itemImgCard"
 import React, { useState } from "react"
 import BlockDisplay from "./BlockDisplay"
-const ItemImgList = ({ itemBlockHandler,id,itemTogleHandler }) => {
+const ItemImgList = ({ id,itemTogleHandler }) => {
     const shoesNum = [3006, 3009, 3020, 3047, 3117, 3111, 3158]
     const armNum = [3001, 3068, 3065, 3075, 3083, 3084, 3121, 3119, 3110, 3193, 3742, 4401, 6662, 6664, 6665, 6667, 8001, 8020]
     const adWepNum = [3053, 3046, 3042, 3036, 3033, 3074, 3078, 3085, 3091, 3094, 3095, 3142, 3139, 3124, 3153, 3156, 3161, 3179, 3181, 3508, 3748, 3814, 6035, 6333, 6609, 6630, 6631, 6632, 6671, 6672, 6673, 6675, 6676, 6691, 6692, 6693, 6694, 6695, 6696]
@@ -48,7 +48,7 @@ const ItemImgList = ({ itemBlockHandler,id,itemTogleHandler }) => {
 
     return (
         <div>
-            <BlockDisplay block={itemBlockHandler} />
+            <BlockDisplay block={itemTogleHandler} />
             <div className="item_card_img">
                 <div className="item_setting">
                     <div className="item_card_list">

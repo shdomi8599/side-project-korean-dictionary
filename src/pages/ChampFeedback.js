@@ -4,6 +4,8 @@ import SpellCard from "../components/SpellCard";
 import React from "react";
 import ItemImgList from "../components/itemImgList";
 import MiniItem from "../components/MiniItem";
+import MiniSpell from "../components/MiniSpell";
+import FeedbackText from "../components/FeedbackText";
 
 const ChampFeedback = () => {
     const { id } = useParams();
@@ -38,6 +40,8 @@ const ChampFeedback = () => {
 
     const [spellTogle, setSpellTogle] = useState(true)
     const [itemTogle, setItemTogle] = useState(true)
+    const [textTogle, setTextTogle] = useState(true)
+    const [feedbackText, setFeedbackText] = useState('피드백을 적어주세요!')
 
     const spellTogleHandler = () => {
         setSpellTogle(!spellTogle)
@@ -45,22 +49,36 @@ const ChampFeedback = () => {
     const itemTogleHandler = () => {
         setItemTogle(!itemTogle)
     }
-
-    const spellBlockHandler = () => {
-        setSpellTogle(!spellTogle)
+    const textTogleHandler = () => {
+        setTextTogle(!textTogle)
+    }
+    const feedbackTextInput = (x) => {
+        setFeedbackText(x)
     }
 
-    const itemBlockHandler = () => {
-        setItemTogle(!itemTogle)
+    let style = "champ_edit champ_stats_feedback"
+    if (feedbackText === '피드백을 적어주세요!' && localStorage.getItem(`feedText${id}`) === null) {
+        style = 'champ_edit champ_stats_feedback justifyCenter';
     }
 
-    const pickedItemsNum = JSON.parse(localStorage.getItem(`item${id}`))
-    console.log(pickedItemsNum)
+    if (feedbackText !== '피드백을 적어주세요!') {
+        localStorage.setItem(`feedText${id}`, JSON.stringify(feedbackText))
+    }
+
     return (
         <div className="with_btn">
-            {spellTogle ? <></> : <SpellCard spellTogleHandler={spellTogleHandler} spellBlockHandler={spellBlockHandler} id={id} spellTogle={spellTogle} />}
-            {itemTogle ? <></> : <ItemImgList itemBlockHandler={itemBlockHandler} id={id} itemTogleHandler={itemTogleHandler} />}
+            {spellTogle ? <></> : <SpellCard spellTogleHandler={spellTogleHandler} id={id} spellTogle={spellTogle} />}
+            {itemTogle ? <></> : <ItemImgList id={id} itemTogleHandler={itemTogleHandler} />}
             <button className="home_btn" onClick={() => { navigate(-1); }}>홈으로가기</button>
+            <button className="reset_btn" onClick={() => {
+                if (window.confirm(`정말 ${location.state.name}를(을) 초기화 하시겠습니까?`)) {
+                    window.localStorage.removeItem(`feedText${id}`);
+                    window.localStorage.removeItem(`spell2${id}`);
+                    window.localStorage.removeItem(`spell1${id}`);
+                    window.localStorage.removeItem(`item${id}`);
+                    navigate(0);
+                }
+            }}>초기화하기</button>
             <div className="champ_feedback" >
                 <div>
                     <img className="champ_loading_img" alt='' src={`http://ddragon.leagueoflegends.com/cdn/img/champion/loading/${location.state.id}_0.jpg`} />
@@ -75,25 +93,19 @@ const ChampFeedback = () => {
                     <div className="champ_edit champ_stats_spell"
                         onClick={spellTogleHandler}>
                         {localStorage.getItem(`spell2${id}`) !== null ?
-                            <span>
-                                <span className="mini_spell">
-                                    <img src={JSON.parse(localStorage.getItem(`spell1${id}`))} alt="" />
-                                </span>
-                                <span className="mini_spell">
-                                    <img src={JSON.parse(localStorage.getItem(`spell2${id}`))} alt="" />
-                                </span>
-                            </span> :
-                            <span>스펠을 선택해주세요!</span>}
+                            <MiniSpell id={id} /> :
+                            <span className="fake_placeholder">스펠을 선택해주세요!</span>}
                     </div>
                     <div className="champ_edit champ_stats_item" onClick={itemTogleHandler}>
                         {localStorage.getItem(`item${id}`) !== null ?
-                            pickedItemsNum.map(num => <MiniItem pickedItem={num} />)
+                            JSON.parse(localStorage.getItem(`item${id}`)).map(num => <MiniItem pickedItem={num} />)
                             :
-                            <span>아이템을 선택해주세요!</span>
+                            <span className="fake_placeholder">아이템을 선택해주세요!</span>
                         }
                     </div>
-                    <div className="champ_edit champ_stats_feedback">
-                        피드백 텍스트 창
+                    <div className={style}>
+                        {<FeedbackText feedbackTextInput={feedbackTextInput} textTogleHandler={textTogleHandler} id={id}
+                            feedbackText={feedbackText} textTogle={textTogle} />}
                     </div>
                 </div>
             </div>

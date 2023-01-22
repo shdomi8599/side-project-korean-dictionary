@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React,{ useState } from "react";
 
 const ItemImgCard = ({ itemNum, itemCountHandler }) => {
 
@@ -26,4 +26,4 @@ const ItemImgCard = ({ itemNum, itemCountHandler }) => {
     </div>
 }
 
-export default ItemImgCard;
+export default React.memo(ItemImgCard);

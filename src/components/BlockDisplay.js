@@ -1,3 +1,5 @@
+import React from "react";
+
 const BlockDisplay = ({ block, spellTogle, spellCount, id }) => {
 
     return <div className="block_display" onClick={() => {
@@ -12,4 +14,4 @@ const BlockDisplay = ({ block, spellTogle, spellCount, id }) => {
     </div>
 }
 
-export default BlockDisplay
+export default React.memo(BlockDisplay)
