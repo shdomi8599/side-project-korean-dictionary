@@ -28,7 +28,7 @@ const AllNav = () => {
                         if(window.confirm('정말 초기화 하시겠습니까?')){
                             localStorage.clear()
                         }
-                        }}><span>초기화하기</span></Link>
+                        }}><span>전체초기화</span></Link>
                 </li>
             </ul>
         </div>

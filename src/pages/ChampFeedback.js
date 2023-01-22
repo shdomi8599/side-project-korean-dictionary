@@ -71,14 +71,14 @@ const ChampFeedback = () => {
             {itemTogle ? <></> : <ItemImgList id={id} itemTogleHandler={itemTogleHandler} />}
             <button className="home_btn" onClick={() => { navigate(-1); }}>홈으로가기</button>
             <button className="reset_btn" onClick={() => {
-                if (window.confirm(`정말 ${location.state.name}를(을) 초기화 하시겠습니까?`)) {
+                if (window.confirm(`정말 초기화 하시겠습니까?`)) {
                     window.localStorage.removeItem(`feedText${id}`);
                     window.localStorage.removeItem(`spell2${id}`);
                     window.localStorage.removeItem(`spell1${id}`);
                     window.localStorage.removeItem(`item${id}`);
                     navigate(0);
                 }
-            }}>초기화하기</button>
+            }}>{location.state.name} 초기화</button>
             <div className="champ_feedback" >
                 <div>
                     <img className="champ_loading_img" alt='' src={`http://ddragon.leagueoflegends.com/cdn/img/champion/loading/${location.state.id}_0.jpg`} />
