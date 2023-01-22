@@ -476,6 +476,7 @@ button:active {
   padding: 10px;
   z-index: 3;
   position: relative;
+  resize: none; 
 }
 
 .champFeedText {

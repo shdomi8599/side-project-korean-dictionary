@@ -29,7 +29,11 @@ if(localStorage.getItem(`feedText${id}`)&&textTogle){
         : 
         <>
         <BlockDisplay block={textTogleHandler}/>
-        <textarea onChange={(e)=>{
+        <textarea value={localStorage.getItem(`feedText${id}`) !== null ?
+        JSON.parse(localStorage.getItem(`feedText${id}`)) :
+        ''
+    }
+        onChange={(e)=>{
            feedbackTextInput(e.target.value)
         }} className="feedback_textarea"/>
         </>}
