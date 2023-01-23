@@ -528,6 +528,7 @@ button:active {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  margin-bottom: 30px;
 }
 
 .myfeedback_card_header{

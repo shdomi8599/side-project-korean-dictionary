@@ -29,6 +29,11 @@ riotApiData()
       .then(champData,data => data)
       .then(async(itemData) => {
         itemData = await itemData.json()
+        champData.sort((x,y)=>{
+          if(x.name<y.name){
+            return -1
+          }
+        })
         return root.render(
           <App champData={champData} itemData={itemData} backImg={{ backgroundImage: `url(http://ddragon.leagueoflegends.com/cdn/img/champion/splash/${champData[rand162].id}_0.jpg)` }} />
         )

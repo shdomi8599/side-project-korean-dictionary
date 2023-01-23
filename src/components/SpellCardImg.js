@@ -35,11 +35,7 @@ const SpellCardImg = ({ src, spellCountHandler, reverseSpellCountHandler, spellC
     return <div className={spellImgTogle ?
         'spell_box select_spell' : 'spell_box'}
         onClick={
-            spellCount < 2 ?
-                (spellImgTogle ? reverseTogle : baseTogle) :
-                (() => {
-                    console.log('끝')
-                })
+        spellCount < 2 && spellImgTogle ? reverseTogle : baseTogle
         }>
         <img className="spell" src={src} alt="" />
     </div>

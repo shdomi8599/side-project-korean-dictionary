@@ -1,4 +1,7 @@
 import { useNavigate } from "react-router-dom"
+import resetLocal from "../function/reset"
+
+
 
 
 const MyFeedbackCard = ({ id, champData }) => {
@@ -7,13 +10,7 @@ const MyFeedbackCard = ({ id, champData }) => {
     const [myChamp] = champData.filter(champ => champ.key === id)
 
     const removeCardBtn = () => {
-        let filterArr = JSON.parse(localStorage.getItem(`myChampList`)).filter(x => parseInt(x) !== parseInt(id))
-        console.log(filterArr)
-        localStorage.setItem('myChampList', JSON.stringify(filterArr))
-        window.localStorage.removeItem(`feedText${id}`);
-        window.localStorage.removeItem(`spell2${id}`);
-        window.localStorage.removeItem(`spell1${id}`);
-        window.localStorage.removeItem(`item${id}`);
+        resetLocal(id)
         navigate(0)
     }
 

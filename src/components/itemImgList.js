@@ -1,6 +1,6 @@
-import ItemImgCard from "../components/itemImgCard"
 import React, { useState } from "react"
 import BlockDisplay from "./BlockDisplay"
+import ItemCardSetting from "./ItemCardSetting"
 const ItemImgList = ({ id,itemTogleHandler }) => {
     const shoesNum = [3006, 3009, 3020, 3047, 3117, 3111, 3158]
     const armNum = [3001, 3068, 3065, 3075, 3083, 3084, 3121, 3119, 3110, 3193, 3742, 4401, 6662, 6664, 6665, 6667, 8001, 8020]
@@ -11,8 +11,6 @@ const ItemImgList = ({ id,itemTogleHandler }) => {
     const [itemCount, setItemCount] = useState(0);
     let [itemArr, setItemArr] = useState([]);
 
-    //여기까지 진행함 아이템 데이터를 itemArr에 모두 저장하기 까지 성공
-    //아이디를 피드백에서 받아온다음 그 아이디와 배열값을 로컬에 저장하고 빼서 쓰는 방식으로 하면될듯?
     const itemCountHandler = {
         up: () => {
             if (itemCount < 6) {
@@ -51,23 +49,13 @@ const ItemImgList = ({ id,itemTogleHandler }) => {
             <BlockDisplay block={itemTogleHandler} />
             <div className="item_card_img">
                 <div className="item_setting">
-                    <div className="item_card_list">
-                        {adWepNum.map(x => <ItemImgCard itemNum={x} key={x} itemCountHandler={itemCountHandler} />)}
-                    </div>
-                    <div className="item_card_list">
-                        {shoesNum.map(x => <ItemImgCard itemNum={x} key={x} itemCountHandler={itemCountHandler} />)}
-                    </div>
+                    <ItemCardSetting arrName={adWepNum} itemCountHandler={itemCountHandler}/>
+                    <ItemCardSetting arrName={shoesNum} itemCountHandler={itemCountHandler}/>
                 </div>
                 <div className="item_setting">
-                    <div className="item_card_list">
-                        {supNum.map(x => <ItemImgCard itemNum={x} key={x} itemCountHandler={itemCountHandler} />)}
-                    </div>
-                    <div className="item_card_list">
-                        {apWepNum.map(x => <ItemImgCard itemNum={x} key={x} itemCountHandler={itemCountHandler} />)}
-                    </div>
-                    <div className="item_card_list">
-                        {armNum.map(x => <ItemImgCard itemNum={x} key={x} itemCountHandler={itemCountHandler} />)}
-                    </div>
+                <ItemCardSetting arrName={supNum} itemCountHandler={itemCountHandler}/>
+                <ItemCardSetting arrName={apWepNum} itemCountHandler={itemCountHandler}/>
+                <ItemCardSetting arrName={armNum} itemCountHandler={itemCountHandler}/>
                 </div>
             </div>
         </div>

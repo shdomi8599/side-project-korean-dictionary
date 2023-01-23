@@ -1,6 +1,4 @@
 import ChampCard from "./champCard"
-import { useNavigate, useSearchParams } from "react-router-dom"
-import Edit from "../pages/Edit"
 import React from "react"
 
 const ChampList = ({ champData, }) => {

@@ -3,18 +3,22 @@ import MyFeedbackCard from "../components/MyFeedbackCard"
 
 const MyFeedback = ({ champData }) => {
 
-    const myChampArr = JSON.parse(localStorage.getItem('myChampList'))
+    let myChampArr;
+    if(localStorage.getItem('myChampList') !==null){
+        myChampArr = JSON.parse(localStorage.getItem('myChampList'))
+    }
+   
     let myFeedbackStyle = "myfeedback"
 
-    if (localStorage.myChampList === '[]') {
+    if (localStorage.myChampList === '[]' || localStorage.getItem('myChampList') ===null) {
         myFeedbackStyle = "myfeedback_flex"
     }
 
     return (
         <div className="myfeedback_back">
             <div className={myFeedbackStyle}>
-                {localStorage.myChampList === '[]' ? <EmptyFeedback /> :
-                    myChampArr.map(champ => <MyFeedbackCard id={champ} champData={champData} />)}
+                {localStorage.myChampList === '[]'||localStorage.getItem('myChampList') ===null? <EmptyFeedback /> :
+                    myChampArr.map(champ => <MyFeedbackCard key={champ} id={champ} champData={champData} />)}
             </div>
         </div>
     )

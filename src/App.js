@@ -3,8 +3,6 @@ import './bootstrap.min.css'
 import React from 'react';
 
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import New from './pages/New';
-import Edit from './pages/Edit';
 import Board from './pages/Board';
 import Login from './pages/Login';
 import SignUp from './pages/SignUp';
@@ -14,7 +12,7 @@ import ChampFeedback from './pages/ChampFeedback';
 import AllNav from './components/AllNav';
 
 
- function App({ champData, backImg,itemData }) {
+ function App({ champData, backImg }) {
   
 
   return (
@@ -25,8 +23,6 @@ import AllNav from './components/AllNav';
         <Route path='/champFeedback/:id' element={<ChampFeedback />} />
         <Route path='/signUp' element={<SignUp />} />
         <Route path='/login' element={<Login/>} />
-        <Route path='/new/:id' element={<New />} />
-        <Route path='/edit/:id' element={<Edit />} />
         <Route path='/board' element={<Board />} />
         <Route path='/myFeedback' element={<MyFeedback champData={champData}/>} />
       </Routes>

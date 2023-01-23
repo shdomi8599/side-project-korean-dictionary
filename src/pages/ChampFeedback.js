@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState } from "react";
 import { useParams, useLocation, useNavigate } from "react-router-dom"
 import SpellCard from "../components/SpellCard";
 import React from "react";
@@ -6,6 +6,8 @@ import ItemImgList from "../components/itemImgList";
 import MiniItem from "../components/MiniItem";
 import MiniSpell from "../components/MiniSpell";
 import FeedbackText from "../components/FeedbackText";
+import resetLocal from "../function/reset"
+
 
 const ChampFeedback = () => {
     const { id } = useParams();
@@ -64,7 +66,7 @@ const ChampFeedback = () => {
     }
 
     let style = "champ_edit champ_stats_feedback"
-    
+
     if (feedbackText === '피드백을 적어주세요!' && feedTextId === null) {
         style = 'champ_edit champ_stats_feedback justifyCenter';
     }
@@ -91,10 +93,7 @@ const ChampFeedback = () => {
             <button className="home_btn" onClick={() => { navigate(-1); }}>뒤로가기</button>
             <button className="reset_btn" onClick={() => {
                 if (window.confirm(`정말 초기화 하시겠습니까?`)) {
-                    window.localStorage.removeItem(`feedText${id}`);
-                    window.localStorage.removeItem(`spell2${id}`);
-                    window.localStorage.removeItem(`spell1${id}`);
-                    window.localStorage.removeItem(`item${id}`);
+                    resetLocal(id)
                     navigate(0);
                 }
             }}>{location.state.name} 초기화</button>
