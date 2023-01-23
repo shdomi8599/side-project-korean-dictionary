@@ -6,4 +6,4 @@ const MiniItem = ({ pickedItem }) => {
     </span>
 }
 
-export default React.memo(MiniItem);
+export default MiniItem;

@@ -1,7 +1,21 @@
-const MyFeedback =() => {
+import EmptyFeedback from "../components/EmptyFeedback"
+import MyFeedbackCard from "../components/MyFeedbackCard"
+
+const MyFeedback = ({ champData }) => {
+
+    const myChampArr = JSON.parse(localStorage.getItem('myChampList'))
+    let myFeedbackStyle = "myfeedback"
+
+    if (localStorage.myChampList === '[]') {
+        myFeedbackStyle = "myfeedback_flex"
+    }
+
     return (
-        <div>
-            <h1>이곳은 마이피드백</h1>
+        <div className="myfeedback_back">
+            <div className={myFeedbackStyle}>
+                {localStorage.myChampList === '[]' ? <EmptyFeedback /> :
+                    myChampArr.map(champ => <MyFeedbackCard id={champ} champData={champData} />)}
+            </div>
         </div>
     )
 }

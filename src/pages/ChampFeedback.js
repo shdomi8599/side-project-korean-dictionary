@@ -12,6 +12,13 @@ const ChampFeedback = () => {
     const location = useLocation();
     const navigate = useNavigate();
     const tagsArr = [];
+    const feedTextId = localStorage.getItem(`feedText${id}`)
+    const spell1 = localStorage.getItem(`spell1${id}`)
+    const spell2 = localStorage.getItem(`spell2${id}`)
+    const itemId = localStorage.getItem(`item${id}`)
+    const myChampList = localStorage.getItem(`myChampList`)
+    const champDataArr = [feedTextId, spell2, spell1, itemId]
+    const booleanArr = champDataArr.map(x => x !== null);
 
     const position = {
         "Fighter": "근접딜러",
@@ -57,7 +64,8 @@ const ChampFeedback = () => {
     }
 
     let style = "champ_edit champ_stats_feedback"
-    if (feedbackText === '피드백을 적어주세요!' && localStorage.getItem(`feedText${id}`) === null) {
+    
+    if (feedbackText === '피드백을 적어주세요!' && feedTextId === null) {
         style = 'champ_edit champ_stats_feedback justifyCenter';
     }
 
@@ -65,11 +73,22 @@ const ChampFeedback = () => {
         localStorage.setItem(`feedText${id}`, JSON.stringify(feedbackText))
     }
 
+    if (myChampList !== null && JSON.parse(myChampList).includes(id)) {
+
+    }
+    else if (booleanArr.includes(true) && myChampList !== null) {
+        let myChampListArr = JSON.parse(myChampList)
+        myChampListArr.push(id)
+        localStorage.setItem('myChampList', JSON.stringify(myChampListArr))
+    } else if (booleanArr.includes(true) && myChampList === null) {
+        localStorage.setItem('myChampList', JSON.stringify([id]))
+    }
+
     return (
         <div className="with_btn">
             {spellTogle ? <></> : <SpellCard spellTogleHandler={spellTogleHandler} id={id} spellTogle={spellTogle} />}
             {itemTogle ? <></> : <ItemImgList id={id} itemTogleHandler={itemTogleHandler} />}
-            <button className="home_btn" onClick={() => { navigate(-1); }}>홈으로가기</button>
+            <button className="home_btn" onClick={() => { navigate(-1); }}>뒤로가기</button>
             <button className="reset_btn" onClick={() => {
                 if (window.confirm(`정말 초기화 하시겠습니까?`)) {
                     window.localStorage.removeItem(`feedText${id}`);
@@ -92,13 +111,13 @@ const ChampFeedback = () => {
                     </div>
                     <div className="champ_edit champ_stats_spell"
                         onClick={spellTogleHandler}>
-                        {localStorage.getItem(`spell2${id}`) !== null ?
+                        {spell2 !== null ?
                             <MiniSpell id={id} /> :
                             <span className="fake_placeholder">스펠을 선택해주세요!</span>}
                     </div>
                     <div className="champ_edit champ_stats_item" onClick={itemTogleHandler}>
-                        {localStorage.getItem(`item${id}`) !== null ?
-                            JSON.parse(localStorage.getItem(`item${id}`)).map(num => <MiniItem pickedItem={num} />)
+                        {itemId !== null ?
+                            JSON.parse(itemId).map(num => <MiniItem pickedItem={num} />)
                             :
                             <span className="fake_placeholder">아이템을 선택해주세요!</span>
                         }

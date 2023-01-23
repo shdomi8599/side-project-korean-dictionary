@@ -17,9 +17,6 @@ import AllNav from './components/AllNav';
  function App({ champData, backImg,itemData }) {
   
 
-
-const itemNum = Object.keys(itemData.data)
-
   return (
     <BrowserRouter>
       <AllNav />
@@ -31,7 +28,7 @@ const itemNum = Object.keys(itemData.data)
         <Route path='/new/:id' element={<New />} />
         <Route path='/edit/:id' element={<Edit />} />
         <Route path='/board' element={<Board />} />
-        <Route path='/myFeedback' element={<MyFeedback />} />
+        <Route path='/myFeedback' element={<MyFeedback champData={champData}/>} />
       </Routes>
     </BrowserRouter>
   );

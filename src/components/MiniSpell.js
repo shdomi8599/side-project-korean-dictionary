@@ -13,4 +13,4 @@ const MiniSpell = ({id}) => {
     </span>
 }
 
-export default React.memo(MiniSpell)
+export default MiniSpell

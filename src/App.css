@@ -501,3 +501,73 @@ button:active {
 .feedback_text .champFeedText {
   cursor: pointer;
 }
+
+/* MyFeedback */
+
+.myfeedback_back{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.myfeedback{
+  margin-top: 50px;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  width: 70%;
+}
+
+.myfeedback_card img{
+  width: 150px;
+  cursor: pointer;
+}
+
+.myfeedback_card{
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.myfeedback_card_header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 30px;
+
+  background-color: black;
+  width: 150px;
+}
+
+.myfeedback_card_btn{
+  font-size: 10px;
+  padding: 3px;
+
+}
+
+.myfeedback_card_btn:hover {
+  background-color: #23c483;
+  box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
+  color: #fff;
+  transform: translateY(0px);
+}
+
+.myfeedback_card_btn:active {
+  transform: translateY(0px);
+}
+
+
+.myfeedback_card_name{
+  color: white;
+  background-color: black;
+  width: 150px;
+}
+
+.myfeedback_flex{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30vh;
+  font-size: 30px;
+}
