@@ -6,6 +6,7 @@ import MiniItem from "../components/MiniItem";
 import MiniSpell from "../components/MiniSpell";
 import FeedbackText from "../components/FeedbackText";
 import resetLocal from "../function/reset"
+import ConfirmMessage from "../components/ConfirmMessage";
 
 const ChampFeedback = () => {
     const { id } = useParams();
@@ -19,6 +20,17 @@ const ChampFeedback = () => {
     const myChampList = localStorage.getItem(`myChampList`)
     const champDataArr = [feedTextId, spell2, spell1, itemId]
     const booleanArr = champDataArr.map(x => x !== null);
+
+    const [resetTogle,setResetTogle] = useState(false);
+
+    const resetTogleHandler = () =>{
+     setResetTogle(!resetTogle)
+    }
+ 
+     const resetBtn = () => {  
+        resetLocal(id)
+        navigate(0);
+     }
 
     const position = {
         "Fighter": "근접딜러",
@@ -86,15 +98,11 @@ const ChampFeedback = () => {
 
     return (
         <div className="with_btn">
+            {resetTogle&&<ConfirmMessage message={'삭제'} result={resetBtn} cancle={resetTogleHandler}/>}
             {spellTogle ? <></> : <SpellCard spellTogleHandler={spellTogleHandler} id={id} spellTogle={spellTogle} />}
             {itemTogle ? <></> : <ItemImgList id={id} itemTogleHandler={itemTogleHandler} />}
             <button className="home_btn" onClick={() => { navigate(-1); }}>뒤로가기</button>
-            <button className="reset_btn" onClick={() => {
-                if (window.confirm(`정말 초기화 하시겠습니까?`)) {
-                    resetLocal(id)
-                    navigate(0);
-                }
-            }}>{location.state.name} 초기화</button>
+            <button className="reset_btn" onClick={resetTogleHandler}>{location.state.name} 피드백 삭제</button>
             <div className="champ_feedback" >
                 <div>
                     <img className="champ_loading_img" alt='' src={`http://ddragon.leagueoflegends.com/cdn/img/champion/loading/${location.state.id}_0.jpg`} />

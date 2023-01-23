@@ -1,7 +1,9 @@
+import { useState } from "react";
 import { useNavigate } from "react-router-dom"
 import resetLocal from "../function/reset"
+import ConfirmMessage from "./ConfirmMessage";
 
-
+// require('../img/spell/SummonerDot.png')
 
 
 const MyFeedbackCard = ({ id, champData }) => {
@@ -9,19 +11,27 @@ const MyFeedbackCard = ({ id, champData }) => {
 
     const [myChamp] = champData.filter(champ => champ.key === id)
 
-    const removeCardBtn = () => {
-        resetLocal(id)
-        navigate(0)
+   const [cardTogle,setCardTogle] = useState(false);
+
+   const cardTogleHandler = () =>{
+    setCardTogle(!cardTogle)
+   }
+
+    const removeCardBtn = () => {  
+            resetLocal(id)
+            navigate(0)
     }
 
     return (
+        <>
+        {cardTogle&&<ConfirmMessage message={'삭제'} result={removeCardBtn} cancle={cardTogleHandler}/> }
         <div className="myfeedback_card" >
             <div className="myfeedback_card_header">
-                <button className="myfeedback_card_btn" onClick={removeCardBtn}>
-                    삭제
+                <button className="myfeedback_card_btn" onClick={cardTogleHandler}>
+                    <img id="card_img" src={require('../img/remove.png')} alt=""/>
                 </button>
                 <button className="myfeedback_card_btn">
-                    공유
+                    <img id="card_img" src={require('../img/share.png')} alt=""/>
                 </button>
             </div>
             <div>
@@ -38,6 +48,7 @@ const MyFeedbackCard = ({ id, champData }) => {
                 {myChamp.name}
             </div>
         </div>
+        </>
     )
 }
 

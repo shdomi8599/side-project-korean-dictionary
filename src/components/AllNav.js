@@ -1,9 +1,24 @@
 import { Link } from "react-router-dom"
-import React from "react"
+import React,{useState} from "react"
+import ConfirmMessage from "./ConfirmMessage";
 
 
 const AllNav = () => {
+
+    const [resetTogle,setResetTogle] = useState(false);
+
+    const resetTogleHandler = () =>{
+     setResetTogle(!resetTogle)
+    }
+ 
+     const resetBtn = () => {  
+        localStorage.clear()
+        setResetTogle(!resetTogle)
+     }
+ 
+
     return <nav className="navbar navbar-expand-lg bg-dark">
+        {resetTogle&&<ConfirmMessage  message={'모든 피드백을 삭제'} result={resetBtn} cancle={resetTogleHandler}/>}
     <div className="container-fluid">
         <Link to={"/"} className="navbar-brand"><span>League Of Legends 피드백</span></Link>
         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -24,11 +39,7 @@ const AllNav = () => {
                     <Link to={"/signUp"} className="nav-link active"><span>회원가입</span></Link>
                 </li>
                 <li className="nav-item">
-                    <Link to={"/"}className="nav-link active" onClick={()=>{
-                        if(window.confirm('정말 초기화 하시겠습니까?')){
-                            localStorage.clear()
-                        }
-                        }}><span>전체초기화</span></Link>
+                    <Link to={"/"}className="nav-link active" onClick={resetTogleHandler}><span>모든 피드백 삭제</span></Link>
                 </li>
             </ul>
         </div>
