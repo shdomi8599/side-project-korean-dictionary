@@ -1,13 +1,11 @@
-import { useState } from "react";
+import React,{ useState } from "react";
 import { useParams, useLocation, useNavigate } from "react-router-dom"
 import SpellCard from "../components/SpellCard";
-import React from "react";
 import ItemImgList from "../components/itemImgList";
 import MiniItem from "../components/MiniItem";
 import MiniSpell from "../components/MiniSpell";
 import FeedbackText from "../components/FeedbackText";
 import resetLocal from "../function/reset"
-
 
 const ChampFeedback = () => {
     const { id } = useParams();

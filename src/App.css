@@ -284,12 +284,12 @@ button:active {
 
 .home_btn {
   height: 10vh;
-  margin-top: 10vh;
+  margin-top: 5vh;
   border-radius: 10px;
   border: 0.5px solid white;
   padding: 0px 30px;
   font-size: 20px;
-
+  margin-bottom: 3vh;
 }
 
 .champ_edit .champ_stats_name{
@@ -469,9 +469,14 @@ button:active {
 .feedback_text{
   width: 100%;
 }
+.addFlex {
+  height: 100%;
+  display: flex;  
+  align-items: center;
+  justify-content: center;
+ }
 
 .feedback_textarea {
-  margin-top: 20px;
   font-size: 25px;
   width: 90%;
   min-height: 280px;
