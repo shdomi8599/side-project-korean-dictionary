@@ -1,7 +1,10 @@
 import BoardFeedbackCard from "../components/BoardFeedbackCard"
 import EmptyShare from "../components/EmptyShare";
+import React, { useState } from "react";
+import { v4 as uuidv4 } from 'uuid';
 
 const Board = ({champData}) => {
+
 
     // 공유하기 버튼으로 넘어온 데이터를 받기 위한 코드
     let shareList;
@@ -14,9 +17,12 @@ const Board = ({champData}) => {
     if(localStorage.getItem('shareData')!==null){
         CheckHeight = shareList.length;
     }
-    let height = 100
-    if(CheckHeight>1) {
-       height = height + (CheckHeight)*35
+
+    let count = Math.floor(CheckHeight/5)
+
+    let height=100
+    if(CheckHeight >1) {
+       height = height + 70*CheckHeight + count*5
     }
     const backImgHeight = {height : `${height}vh`}
 
@@ -24,7 +30,8 @@ const Board = ({champData}) => {
         <>
             <div className="board">
                 {shareList !== undefined? 
-                shareList.map(shareChampData=> <BoardFeedbackCard shareChampData={shareChampData} champData={champData} />)
+                shareList.map(shareChampData=> <BoardFeedbackCard shareChampData={shareChampData} champData={champData} 
+                 key={uuidv4()}   />)
                 :
                  <EmptyShare/>}
             </div>
@@ -34,4 +41,4 @@ const Board = ({champData}) => {
     )
 }
 
-export default Board
+export default React.memo(Board)

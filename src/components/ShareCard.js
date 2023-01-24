@@ -1,9 +1,9 @@
 import SharePosition from "./SharePosition";
+import React from "react";
 
 const ShareCard = ({ shareChampData,champData }) => {
 
     const [myChamp] = champData.filter(champ => champ.key === shareChampData.key)
-    console.log(myChamp)
 
     const position = {
         "Fighter": "근접딜러",
@@ -42,7 +42,7 @@ const ShareCard = ({ shareChampData,champData }) => {
                     {myChamp.name}
                 </div>
                 <div className="share_card__position">
-                  {tagsArr.map(position => <SharePosition position={position}/>)} 
+                  {tagsArr.map(position => <SharePosition position={position} key={position}/>)} 
                 </div>
                 <div className="share_card__spell" >
                     {shareChampData.spell1 !== null && shareChampData.spell2 !== null ?
@@ -59,7 +59,7 @@ const ShareCard = ({ shareChampData,champData }) => {
                         shareChampData.itemId.map(itemNum =>
                             <img
                                 src={`https://ddragon.leagueoflegends.com/cdn/13.1.1/img/item/${itemNum}.png`}
-                                alt="" />
+                                alt="" key={itemNum} />
                         ) : <></>
                     }
                 </div>
@@ -73,4 +73,4 @@ const ShareCard = ({ shareChampData,champData }) => {
     </>
 }
 
-export default ShareCard;
+export default React.memo(ShareCard);

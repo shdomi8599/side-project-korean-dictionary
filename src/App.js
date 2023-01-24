@@ -1,6 +1,6 @@
 import './App.css';
 import './bootstrap.min.css'
-import React from 'react';
+import React, { useState } from 'react';
 
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Board from './pages/Board';
@@ -10,17 +10,20 @@ import Home from './pages/Home';
 import MyFeedback from './pages/MyFeedback';
 import ChampFeedback from './pages/ChampFeedback';
 import AllNav from './components/AllNav';
+import { v4 as uuidv4 } from 'uuid';
 
 
  function App({ champData, backImg }) {
   
 
+
+
   return (
     <BrowserRouter>
       <AllNav />
       <Routes>
-        <Route path='/' element={<Home champData={champData} backImg={backImg} />} />
-        <Route path='/champFeedback/:id' element={<ChampFeedback />} />
+        <Route path='/' element={<Home champData={champData} backImg={backImg}  />} />
+        <Route path='/champFeedback/:id' element={<ChampFeedback key={uuidv4()}/>}/>
         <Route path='/signUp' element={<SignUp />} />
         <Route path='/login' element={<Login/>} />
         <Route path='/board' element={<Board champData={champData}/>} />

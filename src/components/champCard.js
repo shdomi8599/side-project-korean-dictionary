@@ -1,7 +1,7 @@
 import { useNavigate, useSearchParams } from "react-router-dom"
 import React from "react"
 
-const ChampCard = ({ PickChamp }) => {
+const ChampCard = ({ PickChamp, }) => {
     const navigate = useNavigate();
     // 긴 챔피언이름들을 짧게 조정하기 위한 코드
     const champinonName = {
@@ -11,6 +11,7 @@ const ChampCard = ({ PickChamp }) => {
         '아우렐리온 솔': '솔',
         '블리츠크랭크': '블리츠'
     }
+
 
     if (champinonName[PickChamp.name]) {
         PickChamp.name = champinonName[PickChamp.name]

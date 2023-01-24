@@ -4,7 +4,7 @@ const PushMessage = ({ pushMessageHandler, result, cancle }) => {
             피드백 내용을 간단하게 소개해주세요.
         </div>
         <div>
-            <input type="text" placeholder="20글자 이내" id="push_input" maxlength='20'
+            <input type="text" placeholder="20글자 이내" id="push_input"  maxLength={20}
                 onChange={(e) => {
                     pushMessageHandler(e.target.value)
                 }} />

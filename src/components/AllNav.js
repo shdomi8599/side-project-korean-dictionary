@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom"
+import { Link,useNavigate } from "react-router-dom"
 import React,{useState} from "react"
 import ConfirmMessage from "./ConfirmMessage";
 import BlockDisplay from "./BlockDisplay";
@@ -7,12 +7,14 @@ import BlockDisplay from "./BlockDisplay";
 const AllNav = () => {
 //모든 피드백 삭제 버튼을 위한 코드
     const [resetTogle,setResetTogle] = useState(false);
+   const navigate = useNavigate();
 
     const resetTogleHandler = () =>{
      setResetTogle(!resetTogle)
     }
  
      const resetBtn = () => {  
+        navigate('/')
         localStorage.clear()
         setResetTogle(!resetTogle)
      }
@@ -43,7 +45,7 @@ const AllNav = () => {
                     <Link to={"/signUp"} className="nav-link active"><span>회원가입</span></Link>
                 </li>
                 <li className="nav-item">
-                    <Link to={"/"}className="nav-link active" onClick={resetTogleHandler}><span>모든 피드백 삭제</span></Link>
+                    <div className="nav-link active"  id="nav_div" onClick={resetTogleHandler}><span>모든 피드백 삭제</span></div>
                 </li>
             </ul>
         </div>

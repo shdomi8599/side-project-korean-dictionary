@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React,{ useState } from "react";
 import { useNavigate } from "react-router-dom"
 import resetLocal from "../function/reset"
 import BlockDisplay from "./BlockDisplay";
@@ -128,4 +128,4 @@ const MyFeedbackCard = ({ id, champData, height }) => {
     )
 }
 
-export default MyFeedbackCard;
+export default React.memo(MyFeedbackCard);

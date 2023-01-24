@@ -128,7 +128,7 @@ const ChampFeedback = () => {
                         {location.state.name}
                     </div>
                     <div className="champ_edit champ_stats_position">
-                        {tagsArr.map(x => <span>{x}</span>)}
+                        {tagsArr.map(x => <span key={x}>{x}</span>)}
                     </div>
                     <div className="champ_edit champ_stats_spell"
                         onClick={spellTogleHandler}>
@@ -138,7 +138,7 @@ const ChampFeedback = () => {
                     </div>
                     <div className="champ_edit champ_stats_item" onClick={itemTogleHandler}>
                         {itemId !== null ?
-                            JSON.parse(itemId).map(num => <MiniItem pickedItem={num} />)
+                            JSON.parse(itemId).map(num => <MiniItem key={num} pickedItem={num} />)
                             :
                             <span className="fake_placeholder">아이템을 선택해주세요!</span>
                         }
