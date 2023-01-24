@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const BoardCardSet = ({ id, pushText }) => {
 
@@ -12,7 +12,6 @@ const BoardCardSet = ({ id, pushText }) => {
         } else {
             setCountLike(countLike - 1)
         }
-
     }
 
     return <div id="board_card_set">

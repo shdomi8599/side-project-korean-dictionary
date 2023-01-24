@@ -11,6 +11,7 @@ import MyFeedback from './pages/MyFeedback';
 import ChampFeedback from './pages/ChampFeedback';
 import AllNav from './components/AllNav';
 import { v4 as uuidv4 } from 'uuid';
+import HomeFooter from './components/HomeFooter';
 
 
  function App({ champData, backImg }) {

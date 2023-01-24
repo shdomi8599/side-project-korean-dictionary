@@ -10,6 +10,7 @@ const Board = ({champData}) => {
     let shareList;
     if(localStorage.getItem('shareData')!==null){
         shareList=JSON.parse(localStorage.shareData)
+        shareList.reverse();
     }
 
     //반응형으로 높이를 변경해주기 위한 코드

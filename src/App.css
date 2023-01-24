@@ -816,3 +816,18 @@ button:active {
 #push_input {
   width: 350px;
 }
+
+/* home_footer */
+
+.home_footer{
+  padding: 2vh;
+  width: 100%;
+  border-top: 3px solid rgb(66, 80, 145);
+  border-bottom: 3px solid rgb(66, 80, 145);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(29, 28, 28, 0.911);
+  color: white;
+  font-size: 20px;
+}
