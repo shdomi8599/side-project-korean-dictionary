@@ -2,7 +2,8 @@ import { useNavigate, useSearchParams } from "react-router-dom"
 import React from "react"
 
 const ChampCard = ({ PickChamp }) => {
-
+    const navigate = useNavigate();
+    // 긴 챔피언이름들을 짧게 조정하기 위한 코드
     const champinonName = {
         '누누와 윌럼프': '누누',
         '트위스티드 페이트': '트 페',
@@ -14,12 +15,6 @@ const ChampCard = ({ PickChamp }) => {
     if (champinonName[PickChamp.name]) {
         PickChamp.name = champinonName[PickChamp.name]
     }
-
-    const navigate = useNavigate();
-
-    const [searchParams, setSearchParams] = useSearchParams();
-
-
 
     return <div className="champ_card" onClick={() => {
         navigate(`/champFeedback/${PickChamp.key}`,

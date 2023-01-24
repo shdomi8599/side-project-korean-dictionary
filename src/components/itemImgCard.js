@@ -2,6 +2,7 @@ import React,{ useState } from "react";
 
 const ItemImgCard = ({ itemNum, itemCountHandler }) => {
 
+    //아이템이 선택되면 스타일이 바뀌게 하기 위한 코드
     const [itemImgTogle, setImgItemTogel] = useState(false);
 
     const imgTogle = () => {

@@ -4,12 +4,15 @@ import React,{ useState } from "react";
 
 const SpellCardImg = ({ src, spellCountHandler, reverseSpellCountHandler, spellCount, spellTogleHandler, id }) => {
 
+    //선택된 이미지에 효과를 주기 위한 코드
+
     const [spellImgTogle, setImgSpellTogel] = useState(false);
 
     const imgTogle = () => {
         setImgSpellTogel(!spellImgTogle)
     }
 
+    //선택되거나 취소된 스펠 이미지들이 삭제 또는 저장되기 위한 코드
     const baseTogle = () => {
         spellCountHandler();
         imgTogle();

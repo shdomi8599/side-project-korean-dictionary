@@ -265,7 +265,7 @@ button:active {
   align-items: center;
   flex-direction: column;
   font-size: 25px;
-  margin: 0 ;
+  margin: 0;
   background-color: #011522;
   color: white;
 }
@@ -295,7 +295,7 @@ button:active {
   margin-bottom: 3vh;
 }
 
-.champ_edit .champ_stats_name{
+.champ_edit .champ_stats_name {
   width: 100%;
   border-bottom: 1px solid black;
 }
@@ -305,7 +305,7 @@ button:active {
   flex: 0.8;
 }
 
-.champ_edit .champ_stats_position{
+.champ_edit .champ_stats_position {
   width: 100%;
   border-bottom: 1px solid black;
 }
@@ -434,20 +434,20 @@ button:active {
 /*Block Display  */
 
 .block_display {
-  z-index: 2 ;
-  position: absolute ;
+  z-index: 2;
+  position: absolute;
   width: 100%;
   height: 943px;
   left: 0%;
-  top:9%;
-  cursor:default
+  top: 9%;
+  cursor: default
 }
 
 /* Mini Item */
 
-.mini_item img{
+.mini_item img {
   width: 50px;
-  margin: 0 10px ;
+  margin: 0 10px;
   border-radius: 10px;
 }
 
@@ -469,15 +469,16 @@ button:active {
   justify-content: center !important;
 }
 
-.feedback_text{
+.feedback_text {
   width: 100%;
 }
+
 .addFlex {
   height: 100%;
-  display: flex;  
+  display: flex;
   align-items: center;
   justify-content: center;
- }
+}
 
 .feedback_textarea {
   font-size: 25px;
@@ -485,8 +486,8 @@ button:active {
   min-height: 280px;
   padding: 10px;
   z-index: 3;
-  position:sticky;
-  resize: none; 
+  position: sticky;
+  resize: none;
 }
 
 .champFeedText {
@@ -500,7 +501,7 @@ button:active {
   text-align: left;
 }
 
-.reset_btn{
+.reset_btn {
   margin-top: 30px;
   border-radius: 10px;
   border: 1px solid white;
@@ -512,22 +513,23 @@ button:active {
 
 /* MyFeedback */
 
-.myfeedback_back{
+.myfeedback_back {
   display: flex;
   justify-content: center;
   align-items: center;
   padding-top: 90px;
   height: 100%;
   width: 100%;
-  color:  white;
+  color: white;
   text-align: center;
 }
 
-.empty_feedback{
-  margin-top: 5vh;
+.empty_feedback {
+  position: absolute;
+  top: 50%;
 }
 
-.myfeedback_back_img {
+.back_img {
   position: absolute;
   width: 100%;
   height: 100vh;
@@ -540,19 +542,19 @@ button:active {
   z-index: -2;
 }
 
-.myfeedback{
+.myfeedback {
   margin-top: 50px;
   display: grid;
   grid-template-columns: repeat(6, 1fr);
   width: 70%;
 }
 
-.myfeedback_card img{
+.myfeedback_card img {
   width: 150px;
   cursor: pointer;
 }
 
-.myfeedback_card{
+.myfeedback_card {
   text-align: center;
   display: flex;
   justify-content: center;
@@ -561,7 +563,7 @@ button:active {
   margin-bottom: 30px;
 }
 
-.myfeedback_card_header{
+.myfeedback_card_header {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -571,7 +573,7 @@ button:active {
   width: 150px;
 }
 
-.myfeedback_card_btn{
+.myfeedback_card_btn {
   font-size: 10px;
   padding: 3px;
   background-color: white;
@@ -591,13 +593,13 @@ button:active {
 }
 
 
-.myfeedback_card_name{
+.myfeedback_card_name {
   color: white;
   background-color: black;
   width: 150px;
 }
 
-.myfeedback_flex{
+.myfeedback_flex {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -605,14 +607,14 @@ button:active {
   font-size: 30px;
 }
 
-#card_img{
- height: 20px;
- width: 20px;
+#card_img {
+  height: 20px;
+  width: 20px;
 }
 
-/* confirm_message */ 
+/* confirm_message */
 
-.confirm_message{
+.confirm_message {
   display: flex;
   background-color: black;
   color: white;
@@ -629,15 +631,15 @@ button:active {
   z-index: 5;
 }
 
-.confirm_message_box{
+.confirm_message_box {
   width: 100%;
-  flex:1;
+  flex: 1;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.confirm_boolean_box{
+.confirm_boolean_box {
   width: 100%;
   flex: 1;
   display: flex;
@@ -662,4 +664,149 @@ button:active {
 
 .confirm_boolean_box:active {
   transform: translateY(0px);
+}
+
+/* board */
+
+.board {
+  padding-top: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.board_card {
+
+  margin-bottom: 100px;
+  width: 40%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.board_card div {
+  min-height: 5vh;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
+.board_card_id {
+  text-align: left;
+}
+
+#board_card_set {
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  width: 65%;
+  background-color: #011522;
+  color: white;
+  padding-left: 30px;
+}
+
+#board_card_etc {
+  margin-left: auto;
+  padding-right: 30px;
+
+}
+
+.share_card {
+  width: 65%;
+}
+
+.share_card_img {
+  height: 45vh;
+  width: 100%;
+}
+
+.share_card_set {
+  height: 45vh;
+  width: 100%;
+  font-size: 15px;
+  flex-direction: column;
+  background-color: #011522;
+  color: white;
+}
+
+.share_card_set div {
+  border-bottom: 1px solid black;
+  width: 100%;
+}
+
+#board_card_btn {
+  border: 1px solid white;
+  padding: 5px 10px;
+  margin-right: 10px;
+  border-radius: 10px;
+}
+
+#board_card_btn_back {
+  border: 1px solid white;
+  background-color: #23c483;
+  padding: 5px 10px;
+  margin-right: 10px;
+  border-radius: 10px;
+}
+
+#board_card_btn:hover {
+  background-color: #23c483;
+  box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
+  color: #fff;
+  transform: translateY(-5x);
+}
+
+#board_card_btn:active {
+  transform: translateY(-1px);
+}
+
+.empty_share {
+  color: white;
+  position: absolute;
+  top: 50%;
+  font-size: 30px;
+  text-align: center;
+}
+
+.share_card__spell img {
+  width: 40px;
+  margin: 3px;
+}
+
+.share_card__item img {
+  width: 30px;
+  margin: 3px;
+}
+
+#board_back {
+  background-image: url('../src/img/runeterra-void-06.jpg');
+}
+
+.share_card__position {
+  flex-direction: column;
+}
+
+#share_position {
+  border-bottom: none;
+}
+
+
+#share_card_text {
+  align-items: flex-start;
+  justify-content: flex-start;
+  width: 100%;
+  text-align: center;
+  word-break: break-all;
+  overflow-y: auto;
+}
+
+#share_card_text span {
+  padding: 10px;
+}
+
+#push_input {
+  width: 350px;
 }

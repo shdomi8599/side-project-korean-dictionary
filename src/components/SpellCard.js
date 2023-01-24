@@ -5,6 +5,7 @@ import BlockDisplay from './BlockDisplay';
 
 const SpellCard = ({ spellTogleHandler, id, spellTogle }) => {
 
+    //스펠 이미지 소스를 저장한 배열
     const spellSrcArr = [
         require('../img/spell/SummonerBarrier.png'),
         require('../img/spell/SummonerBoost.png'),
@@ -18,6 +19,7 @@ const SpellCard = ({ spellTogleHandler, id, spellTogle }) => {
         require('../img/spell/SummonerTeleport.png'),
     ]
 
+    //선택되고 취소되는 스펠을 카운팅 하기 위한 코드
     const [spellCount, setSpellCount] = useState(0)
 
     const spellCountHandler = () => {

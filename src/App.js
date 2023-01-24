@@ -23,7 +23,7 @@ import AllNav from './components/AllNav';
         <Route path='/champFeedback/:id' element={<ChampFeedback />} />
         <Route path='/signUp' element={<SignUp />} />
         <Route path='/login' element={<Login/>} />
-        <Route path='/board' element={<Board />} />
+        <Route path='/board' element={<Board champData={champData}/>} />
         <Route path='/myFeedback' element={<MyFeedback champData={champData}/>} />
       </Routes>
     </BrowserRouter>
