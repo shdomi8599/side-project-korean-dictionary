@@ -840,7 +840,8 @@ button:active {
   justify-content: center;
   align-items: center;
   height: 100vh;
-
+  font-weight: bold;
+  font-size: 20px;
 }
 
 #sign_back {
@@ -869,7 +870,7 @@ button:active {
   height: 16%;
   border-bottom: 1px solid rgb(119, 117, 117);
   width: 90%;
-  
+
 }
 
 #sign_up_welcome {
@@ -893,12 +894,12 @@ button:active {
 }
 
 .sign_up_dafault {
-  min-width: 120px;
+  min-width: 150px;
 }
 
-.sign_up_input{
+.sign_up_input {
   border-bottom: none;
   border-left: none;
   border-right: none;
-  border-top: 1px solid rgba(170, 164, 164,0.8);
+  border-top: 1px solid rgba(170, 164, 164, 0.8);
 }
