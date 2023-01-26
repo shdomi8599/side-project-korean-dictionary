@@ -910,7 +910,32 @@ button:active {
   font-weight: normal;
 }
 
+/* block_message */
+
 .block_message {
+  position: absolute;
+  top: 40%;
+  left: 40%;
+  z-index: 3;
+  border-radius: 10px;
+  width: 400px;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-color: rgb(43, 41, 41);
+  color: white;
+}
+
+.block_message div {
+  padding: 10px 0;
+}
+
+/* welcome_message */ 
+
+.welcome_message{
   position: absolute;
   top: 40%;
   left: 40%;

@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import BlockDisplay from "../components/BlockDisplay";
 import BlockMessage from "../components/BlockMessage";
 import SignUpDefalut from "../components/SignUpDefalut"
+import WelcomeMessage from "../components/WelcomeMessage";
 
 const SignUp = () => {
 
@@ -44,8 +45,7 @@ const SignUp = () => {
                 return navigate('', { state: { message: '이메일을' } })
             }
             localStorage.setItem('userData', JSON.stringify([userData]))
-            alert('회원가입을 축하합니다.')
-            navigate('/')
+            welcomeTogleHandler()
 
         }
         //로컬데이터가 있다면
@@ -73,8 +73,7 @@ const SignUp = () => {
             const userDataAdd = JSON.parse(localStorage.userData)
             userDataAdd.push(userData)
             localStorage.setItem('userData', JSON.stringify(userDataAdd))
-            alert('회원가입을 축하합니다.')
-            navigate('/')
+            welcomeTogleHandler()
         }
     }
 
@@ -92,12 +91,25 @@ const SignUp = () => {
         setBlockTogle(!blockTogle)
     }
 
+    //웰컴 메시지를 띄우기 위한 코드
+    const [welcomeTogle, setWelcomeTogle] = useState(false)
+
+    const welcomeTogleHandler = () => {
+        welcomeTogle ? navigate('/') : setWelcomeTogle(!welcomeTogle)
+    }
+
     return (
         <div className="sign_up">
             {blockTogle &&
                 <>
                     <BlockMessage blockTogleHandelr={blockTogleHandelr} />
                     <BlockDisplay block={blockTogleHandelr} height={111} />
+                </>
+            }
+            {welcomeTogle &&
+                <>
+                    <WelcomeMessage blockTogleHandelr={welcomeTogleHandler} />
+                    <BlockDisplay block={welcomeTogleHandler} height={111} />
                 </>
             }
             <div className="sign_up_box">
