@@ -910,7 +910,7 @@ button:active {
   font-weight: normal;
 }
 
-.block_message{
+.block_message {
   position: absolute;
   top: 40%;
   left: 40%;
@@ -924,7 +924,7 @@ button:active {
   align-items: center;
   text-align: center;
   background-color: rgb(43, 41, 41);
-  color:white;
+  color: white;
 }
 
 .block_message div {

@@ -86,10 +86,7 @@ const ChampFeedback = () => {
         localStorage.setItem(`feedText${id}`, JSON.stringify(feedbackText))
     }
 
-
-
     //나만의 피드백탭에 챔피언 피드백을 작성한 데이터들만 카드를 생성해주기 위한 코드
-
 
     const spell1 = localStorage.getItem(`spell1${id}`)
     const spell2 = localStorage.getItem(`spell2${id}`)
@@ -109,9 +106,7 @@ const ChampFeedback = () => {
         localStorage.setItem('myChampList', JSON.stringify([id]))
     }
 
-
     // 아이템이 선택되면 화면에 랜더링해주고 리셋해주기 위한 코드
-
     // ItemImgList에 넣고 사용했더니 하위 컴포넌트를 랜더링하는 동안 상위 컴포넌트가 바뀌지 않는다는 오류가 발생하길래
     // ItemImgList에서 ChampFeedback로 올려줬더니 오류가 없어졌다.
 
@@ -128,7 +123,6 @@ const ChampFeedback = () => {
         localStorage.setItem(`item${id}`, JSON.stringify(itemArr))
         itemTogleHandler()
     }
-
 
     return (
         <div className="with_btn">

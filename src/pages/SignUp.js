@@ -5,6 +5,7 @@ import BlockMessage from "../components/BlockMessage";
 import SignUpDefalut from "../components/SignUpDefalut"
 
 const SignUp = () => {
+
     const navigate = useNavigate();
     //데이터를 입력하면 저장하도록 도와주는 코드
     const [userData, setUserData] = useState({
@@ -27,47 +28,48 @@ const SignUp = () => {
         //로컬데이터가 없다면
         if (localStorage.getItem('userData') === null) {
             if (userData.id === '') {
-                return blockTogleHandelr()
+                blockTogleHandelr()
+                return navigate('', { state: { message: '아이디를' } })
             }
-
             if (userData.pw === '') {
-                return blockTogleHandelr()
+                blockTogleHandelr()
+                return navigate('', { state: { message: '비밀번호를' } })
             }
-
             if (userData.pw !== userData.pwc) {
-                return blockTogleHandelr()
+                blockTogleHandelr()
+                return navigate('', { state: { message: '비밀번호를' } })
             }
-
             if (userData.email.includes('@') !== true || userData.email.includes('.') !== true) {
-                return blockTogleHandelr()
+                blockTogleHandelr()
+                return navigate('', { state: { message: '이메일을' } })
             }
-
             localStorage.setItem('userData', JSON.stringify([userData]))
             alert('회원가입을 축하합니다.')
             navigate('/')
+
         }
         //로컬데이터가 있다면
         else {
             if (userData.id === '') {
-                return blockTogleHandelr()
+                blockTogleHandelr()
+                return navigate('', { state: { message: '아이디를' } })
             }
-
             if (JSON.parse(localStorage.userData).filter(x => x.id === userData.id).length !== 0) {
-                return blockTogleHandelr()
+                blockTogleHandelr()
+                return navigate('', { state: { message: '아이디를' } })
             }
-
             if (userData.pw === '') {
-                return blockTogleHandelr()
+                blockTogleHandelr()
+                return navigate('', { state: { message: '비밀번호를' } })
             }
-
             if (userData.pw !== userData.pwc) {
-                return blockTogleHandelr()
+                blockTogleHandelr()
+                return navigate('', { state: { message: '비밀번호를' } })
             }
-
             if (userData.email.includes('@') !== true || userData.email.includes('.') !== true) {
-                return blockTogleHandelr()
+                blockTogleHandelr()
+                return navigate('', { state: { message: '이메일을' } })
             }
-
             const userDataAdd = JSON.parse(localStorage.userData)
             userDataAdd.push(userData)
             localStorage.setItem('userData', JSON.stringify(userDataAdd))
@@ -92,10 +94,12 @@ const SignUp = () => {
 
     return (
         <div className="sign_up">
-            {blockTogle && <>
-                <BlockMessage blockTogleHandelr={blockTogleHandelr} />
-                <BlockDisplay block={blockTogleHandelr} height={111} />
-            </>}
+            {blockTogle &&
+                <>
+                    <BlockMessage blockTogleHandelr={blockTogleHandelr} />
+                    <BlockDisplay block={blockTogleHandelr} height={111} />
+                </>
+            }
             <div className="sign_up_box">
                 <div className="sign_up_content" id="sign_up_welcome_box">
                     <div id="sign_up_welcome">
