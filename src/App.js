@@ -12,9 +12,7 @@ import AllNav from './components/AllNav';
 
 
 function App({ champData, backImg }) {
-
-
-
+  
 
   return (
     <BrowserRouter>

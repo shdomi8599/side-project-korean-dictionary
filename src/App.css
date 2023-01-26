@@ -101,7 +101,7 @@ nav {
 }
 
 #nav_div {
-  cursor: pointer ;
+  cursor: pointer;
 }
 
 .nav-item {
@@ -819,7 +819,7 @@ button:active {
 
 /* home_footer */
 
-.home_footer{
+.home_footer {
   padding: 2vh;
   width: 100%;
   border-top: 3px solid rgb(66, 80, 145);
@@ -834,10 +834,71 @@ button:active {
 
 /* sign_up */
 
-.sign_up{
+.sign_up {
   padding-top: 100px;
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 100vh;
 
+}
+
+#sign_back {
+  background-image: url('../src/img/frel-lor-8.jpg');
+}
+
+.sign_up_box {
+  box-shadow: 0px 0px 20px 20px rgb(7, 7, 7);
+
+  width: 40vw;
+  height: 70vh;
+  background-color: rgba(224, 216, 216, 0.95);
+  opacity: 0.95;
+  border-radius: 10px;
+  justify-content: center;
+  align-items: center;
+
+}
+
+
+.sign_up_content {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  margin-left: 4vh;
+  height: 16%;
+  border-bottom: 1px solid rgb(119, 117, 117);
+  width: 90%;
+  
+}
+
+#sign_up_welcome {
+  border: 1px solid black;
+  width: 100%;
+  padding: 0.6vh;
+  background-color: black;
+  color: white;
+  padding-left: 3vh;
+  border-radius: 10px;
+}
+
+#sign_up_welcome_box {
+  border-bottom: none;
+}
+
+#sign_up_btn_box {
+  border-bottom: none;
+  justify-content: center;
+
+}
+
+.sign_up_dafault {
+  min-width: 120px;
+}
+
+.sign_up_input{
+  border-bottom: none;
+  border-left: none;
+  border-right: none;
+  border-top: 1px solid rgba(170, 164, 164,0.8);
 }

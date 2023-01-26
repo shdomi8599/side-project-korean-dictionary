@@ -8,8 +8,7 @@ import PushMessage from "./PushMessage";
 
 const MyFeedbackCard = ({ id, champData, height }) => {
     const navigate = useNavigate();
-
-
+    
     //현재 선택된 챔피언의 키와 id가 일치하는지 확인해서 챔피언 데이터를 추출하는 코드
     const [myChamp] = champData.filter(champ => champ.key === id)
 
@@ -24,6 +23,7 @@ const MyFeedbackCard = ({ id, champData, height }) => {
         resetLocal(id)
         navigate(0)
     }
+
     //공유하기 버튼을 위한 코드
     const [shareTogle, setShareTogle] = useState(false);
 
@@ -55,7 +55,6 @@ const MyFeedbackCard = ({ id, champData, height }) => {
         const itemId = JSON.parse(localStorage.getItem(`item${id}`))
         const feedTextId = JSON.parse(localStorage.getItem(`feedText${id}`))
 
-
         const shareDataObj = {
             spell1: spell1,
             spell2: spell2,
@@ -73,11 +72,8 @@ const MyFeedbackCard = ({ id, champData, height }) => {
             shareDataArr = JSON.parse(localStorage.shareData)
             shareDataArr.push(shareDataObj)
         }
-
         localStorage.setItem('shareData', JSON.stringify(shareDataArr))
     }
-
-
 
     return (
         <>
