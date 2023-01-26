@@ -1,4 +1,4 @@
-import React,{ useState } from "react";
+import React, { useState } from "react";
 
 
 
@@ -32,14 +32,11 @@ const SpellCardImg = ({ src, spellCountHandler, reverseSpellCountHandler, spellC
     const reverseTogle = () => {
         reverseSpellCountHandler();
         imgTogle();
-        localStorage.clear()
+        localStorage.removeItem(`spell1${id}`);
     }
 
-    return <div className={spellImgTogle ?
-        'spell_box select_spell' : 'spell_box'}
-        onClick={
-        spellCount < 2 && spellImgTogle ? reverseTogle : baseTogle
-        }>
+    return <div className={spellImgTogle ? 'spell_box select_spell' : 'spell_box'}
+        onClick={spellCount < 2 && spellImgTogle ? reverseTogle : baseTogle}>
         <img className="spell" src={src} alt="" />
     </div>
 }

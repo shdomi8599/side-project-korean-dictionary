@@ -1,7 +1,6 @@
 import './App.css';
 import './bootstrap.min.css'
-import React, { useState } from 'react';
-
+import React from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Board from './pages/Board';
 import Login from './pages/Login';
@@ -10,12 +9,10 @@ import Home from './pages/Home';
 import MyFeedback from './pages/MyFeedback';
 import ChampFeedback from './pages/ChampFeedback';
 import AllNav from './components/AllNav';
-import { v4 as uuidv4 } from 'uuid';
-import HomeFooter from './components/HomeFooter';
 
 
- function App({ champData, backImg }) {
-  
+function App({ champData, backImg }) {
+
 
 
 
@@ -23,12 +20,12 @@ import HomeFooter from './components/HomeFooter';
     <BrowserRouter>
       <AllNav />
       <Routes>
-        <Route path='/' element={<Home champData={champData} backImg={backImg}  />} />
-        <Route path='/champFeedback/:id' element={<ChampFeedback key={uuidv4()}/>}/>
+        <Route path='/' element={<Home champData={champData} backImg={backImg} />} />
+        <Route path='/champFeedback/:id' element={<ChampFeedback />} />
         <Route path='/signUp' element={<SignUp />} />
-        <Route path='/login' element={<Login/>} />
-        <Route path='/board' element={<Board champData={champData}/>} />
-        <Route path='/myFeedback' element={<MyFeedback champData={champData}/>} />
+        <Route path='/login' element={<Login />} />
+        <Route path='/board' element={<Board champData={champData} />} />
+        <Route path='/myFeedback' element={<MyFeedback champData={champData} />} />
       </Routes>
     </BrowserRouter>
   );

@@ -138,8 +138,8 @@ const ChampFeedback = () => {
                     <BlockDisplay block={resetTogleHandler} />
                 </>}
             {spellTogle ? <></> : <SpellCard spellTogleHandler={spellTogleHandler} id={id} spellTogle={spellTogle} />}
-            {itemTogle ? <></> : <ItemImgList id={id} itemTogleHandler={itemTogleHandler} itemCount={itemCount} setItemCount={setItemCount}
-                itemArr={itemArr} setItemArr={setItemArr} />}
+            {itemTogle ? <></> : <ItemImgList id={id} itemTogleHandler={itemTogleHandler}
+                itemCount={itemCount} setItemCount={setItemCount} itemArr={itemArr} setItemArr={setItemArr} />}
             <button className="home_btn" onClick={() => { navigate(-1); }}>뒤로가기</button>
             <button className="reset_btn" onClick={resetTogleHandler}>{location.state.name} 피드백 삭제</button>
             <div className="champ_feedback" >
