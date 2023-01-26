@@ -903,3 +903,9 @@ button:active {
   border-right: none;
   border-top: 1px solid rgba(170, 164, 164, 0.8);
 }
+
+#validity_test_message{
+ color: red;
+position: absolute;
+font-weight:normal;
+}

@@ -25,37 +25,37 @@ const SignUp = () => {
     const toLocal = () => {
         //로컬데이터가 없다면
         if (localStorage.getItem('userData') === null) {
-            if (userData.id === '') {
+            if (userData.id === '')
                 return alert('아이디를 입력해주세요.')
-            }
-            if (userData.pw === '') {
+
+            if (userData.pw === '')
                 return alert('비밀번호를 입력해주세요.')
-            }
-            if (userData.pw !== userData.pwc) {
+
+            if (userData.pw !== userData.pwc)
                 return alert('비밀번호가 서로 다릅니다.')
-            }
-            if (userData.email.includes('@') !== true || userData.email.includes('.') !== true) {
+
+            if (userData.email.includes('@') !== true || userData.email.includes('.') !== true)
                 return alert('이메일 형식을 지켜주세요.')
-            }
+
             localStorage.setItem('userData', JSON.stringify([userData]))
         }
         //로컬데이터가 있다면
         else {
-            if (userData.id === '') {
+            if (userData.id === '')
                 return alert('아이디를 입력해주세요.')
-            }
-            if (JSON.parse(localStorage.userData).filter(x => x.id === userData.id).length !== 0) {
+
+            if (JSON.parse(localStorage.userData).filter(x => x.id === userData.id).length !== 0)
                 return alert('같은 아이디가 존재합니다')
-            }
-            if (userData.pw === '') {
+
+            if (userData.pw === '')
                 return alert('비밀번호를 입력해주세요.')
-            }
-            if (userData.pw !== userData.pwc) {
+
+            if (userData.pw !== userData.pwc)
                 return alert('비밀번호가 서로 다릅니다.')
-            }
-            if (userData.email.includes('@') !== true || userData.email.includes('.') !== true) {
+
+            if (userData.email.includes('@') !== true || userData.email.includes('.') !== true)
                 return alert('이메일 형식을 지켜주세요.')
-            }
+
             const userDataAdd = JSON.parse(localStorage.userData)
             userDataAdd.push(userData)
             localStorage.setItem('userData', JSON.stringify(userDataAdd))
@@ -63,6 +63,13 @@ const SignUp = () => {
             navigate('/')
         }
     }
+
+   const [pwCheck,setPwCheck] =useState('')
+
+   const pwCheckHandler = (e) =>{
+    setPwCheck(e.target.value)
+    console.log(pwCheck)
+   }
 
     return (
         <div className="sign_up">
@@ -73,8 +80,8 @@ const SignUp = () => {
                     </div>
                 </div>
                 <SignUpDefalut value={'id'} userDataHandeler={userDataHandeler} />
-                <SignUpDefalut value={'pw'} type={'password'} userDataHandeler={userDataHandeler} />
-                <SignUpDefalut value={'pwc'} type={'password'} userDataHandeler={userDataHandeler} />
+                <SignUpDefalut value={'pw'} type={'password'} userDataHandeler={userDataHandeler} pwCheckHandler={pwCheckHandler}/>
+                <SignUpDefalut value={'pwc'} type={'password'} userDataHandeler={userDataHandeler} pwCheck={pwCheck}/>
                 <SignUpDefalut value={'email'} userDataHandeler={userDataHandeler} />
                 <div className="sign_up_content" id="sign_up_btn_box">
                     <button onClick={toLocal}>가입하기</button>
