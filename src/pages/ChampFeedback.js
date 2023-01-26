@@ -57,19 +57,18 @@ const ChampFeedback = () => {
     }
 
     //스펠,아이템,텍스트창을 제어해주기 위한 코드
-    
+
     const feedTextId = localStorage.getItem(`feedText${id}`)
     const [spellTogle, setSpellTogle] = useState(true)
     const [itemTogle, setItemTogle] = useState(true)
     const [textTogle, setTextTogle] = useState(true)
     const [feedbackText, setFeedbackText] = useState('피드백을 적어주세요!')
 
+
     const spellTogleHandler = () => {
         setSpellTogle(!spellTogle)
     }
-    const itemTogleHandler = () => {
-        setItemTogle(!itemTogle)
-    }
+
     const textTogleHandler = () => {
         setTextTogle(!textTogle)
     }
@@ -86,6 +85,8 @@ const ChampFeedback = () => {
     if (feedbackText !== '피드백을 적어주세요!') {
         localStorage.setItem(`feedText${id}`, JSON.stringify(feedbackText))
     }
+
+
 
     //나만의 피드백탭에 챔피언 피드백을 작성한 데이터들만 카드를 생성해주기 위한 코드
 
@@ -108,6 +109,27 @@ const ChampFeedback = () => {
         localStorage.setItem('myChampList', JSON.stringify([id]))
     }
 
+
+    // 아이템이 선택되면 화면에 랜더링해주고 리셋해주기 위한 코드
+
+    // ItemImgList에 넣고 사용했더니 하위 컴포넌트를 랜더링하는 동안 상위 컴포넌트가 바뀌지 않는다는 오류가 발생하길래
+    // ItemImgList에서 ChampFeedback로 올려줬더니 오류가 없어졌다.
+
+    const [itemCount, setItemCount] = useState(0);
+    let [itemArr, setItemArr] = useState([]);
+
+    const itemTogleHandler = () => {
+        setItemCount(0)
+        setItemTogle(!itemTogle)
+        setItemArr([])
+    }
+
+    if (itemCount === 6) {
+        localStorage.setItem(`item${id}`, JSON.stringify(itemArr))
+        itemTogleHandler()
+    }
+
+
     return (
         <div className="with_btn">
             {resetTogle &&
@@ -116,7 +138,8 @@ const ChampFeedback = () => {
                     <BlockDisplay block={resetTogleHandler} />
                 </>}
             {spellTogle ? <></> : <SpellCard spellTogleHandler={spellTogleHandler} id={id} spellTogle={spellTogle} />}
-            {itemTogle ? <></> : <ItemImgList id={id} itemTogleHandler={itemTogleHandler} />}
+            {itemTogle ? <></> : <ItemImgList id={id} itemTogleHandler={itemTogleHandler} itemCount={itemCount} setItemCount={setItemCount}
+                itemArr={itemArr} setItemArr={setItemArr} />}
             <button className="home_btn" onClick={() => { navigate(-1); }}>뒤로가기</button>
             <button className="reset_btn" onClick={resetTogleHandler}>{location.state.name} 피드백 삭제</button>
             <div className="champ_feedback" >

@@ -827,7 +827,17 @@ button:active {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgba(29, 28, 28, 0.911);
+  background-color: rgba(10, 10, 10, 0.911);
   color: white;
   font-size: 20px;
+}
+
+/* sign_up */
+
+.sign_up{
+  padding-top: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
 }

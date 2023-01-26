@@ -23,7 +23,7 @@ const Board = ({champData}) => {
 
     let height=100
     if(CheckHeight >1) {
-       height = height + 70*CheckHeight + count*5
+       height = height + 68*CheckHeight + count*10
     }
     const backImgHeight = {height : `${height}vh`}
 

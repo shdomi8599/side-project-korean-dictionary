@@ -1,4 +1,4 @@
-import React,{ useState } from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom"
 import resetLocal from "../function/reset"
 import BlockDisplay from "./BlockDisplay";
@@ -81,15 +81,12 @@ const MyFeedbackCard = ({ id, champData, height }) => {
 
     return (
         <>
-
             {pushTogle &&
                 <><PushMessage pushMessageHandler={pushMessageHandler} result={shareBtn}
                     cancle={() => { setPushTogle(!pushTogle) }} />
                     <BlockDisplay block={() => { setPushTogle(!pushTogle) }} height={height} />
                 </>
             }
-
-
             {cardTogle &&
                 <>
                     <ConfirmMessage message={'삭제'} result={removeCardBtn} cancle={cardTogleHandler} />
