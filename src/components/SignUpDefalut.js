@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 
-const SignUpDefalut = ({ value, type, userDataHandeler,pwCheckHandler,pwCheck }) => {
-    
+const SignUpDefalut = ({ value, type, userDataHandeler, pwCheckHandler, pwCheck }) => {
+
     // valChange를 통해 데이터에 맞는 이벤트핸들러를 부여하는 코드
     //원래는 상위 컴포넌트에서 내려보냈으나 랜더링 문제가 일어나서 하위로 내렸음.... 무조건 상위가 좋은게 아니었나봄
     const [idData, setIdData] = useState('')
@@ -42,7 +42,7 @@ const SignUpDefalut = ({ value, type, userDataHandeler,pwCheckHandler,pwCheck })
         setInputVal(e.target.value)
         valChange(e.target.value)
         userDataHandeler(e)
-        if(value==='pw'){
+        if (value === 'pw') {
             pwCheckHandler(e)
         }
     }
@@ -60,7 +60,8 @@ const SignUpDefalut = ({ value, type, userDataHandeler,pwCheckHandler,pwCheck })
     if (value === 'id' && inputVal === '')
         valid = { ...valid, enterId: '아이디를 입력해주세요.' }
 
-    if (JSON.parse(localStorage.getItem('userData')).filter(x => x.id === inputVal).length !== 0)
+    if (value === 'id' && localStorage.getItem('userData') !== null &&
+        JSON.parse(localStorage.getItem('userData')).filter(x => x.id === inputVal).length !== 0)
         valid = { ...valid, sameId: '같은 아이디가 존재합니다' }
 
     if (value === 'pw' && inputVal === '')
@@ -72,7 +73,6 @@ const SignUpDefalut = ({ value, type, userDataHandeler,pwCheckHandler,pwCheck })
     if (value === 'email' && inputVal.includes('@') !== true || value === 'email' && inputVal.includes('.') !== true)
         valid = { ...valid, formatEmail: '이메일 형식을 지켜주세요.' }
 
-
     return <div className="sign_up_content">
         <div className="sign_up_dafault">
             {defaultVal}
@@ -80,11 +80,11 @@ const SignUpDefalut = ({ value, type, userDataHandeler,pwCheckHandler,pwCheck })
         <div id="input_box">
             <input className="sign_up_input" type={type} name={value} value={inputVal} onChange={inputValHandler} />
             <div id="validity_test_message">
-                {value === 'id' && valid.sameId}
-                {value === 'id' && valid.enterId}
-                {value === 'pw' && valid.enterPw}
-                {value === 'pwc' && valid.matchPw}
-                {value === 'email' && valid.formatEmail}
+                {valid.sameId}
+                {valid.enterId}
+                {valid.enterPw}
+                {valid.matchPw}
+                {valid.formatEmail}
             </div>
         </div>
     </div>

@@ -1,8 +1,5 @@
-const Login = () => {
-    <div>
-        <h1>이곳은 로그인</h1>
-    </div>
-
+const Login = () =>{
+    return 
 }
 
-export default Login
+export default Login;
