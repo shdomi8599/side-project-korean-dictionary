@@ -8,6 +8,11 @@ import WelcomeMessage from "../components/WelcomeMessage";
 const SignUp = () => {
 
     const navigate = useNavigate();
+
+    // if(checkLogin){
+    //     alert('이미 로그인 상태입니다')
+    // }
+
     //데이터를 입력하면 저장하도록 도와주는 코드
     const [userData, setUserData] = useState({
         id: '',
@@ -23,8 +28,6 @@ const SignUp = () => {
         })
     }
 
-    console.log(userData)
-
     //버튼을 클릭하면 마지막으로 유효성 검사를 실행하고 데이터를 로컬에 저장하도록 도와주는 코드
     const toLocal = () => {
         //로컬데이터가 없다면
@@ -33,11 +36,7 @@ const SignUp = () => {
                 blockTogleHandelr()
                 return navigate('', { state: { message: '아이디를' } })
             }
-            if (userData.pw === '') {
-                blockTogleHandelr()
-                return navigate('', { state: { message: '비밀번호를' } })
-            }
-            if (userData.pw !== userData.pwc) {
+            if (userData.pw === '' || userData.pw !== userData.pwc) {
                 blockTogleHandelr()
                 return navigate('', { state: { message: '비밀번호를' } })
             }
@@ -51,19 +50,12 @@ const SignUp = () => {
         }
         //로컬데이터가 있다면
         else {
-            if (userData.id === '') {
+            if (userData.id === '' ||
+                JSON.parse(localStorage.userData).filter(x => x.id === userData.id).length !== 0) {
                 blockTogleHandelr()
                 return navigate('', { state: { message: '아이디를' } })
             }
-            if (JSON.parse(localStorage.userData).filter(x => x.id === userData.id).length !== 0) {
-                blockTogleHandelr()
-                return navigate('', { state: { message: '아이디를' } })
-            }
-            if (userData.pw === '') {
-                blockTogleHandelr()
-                return navigate('', { state: { message: '비밀번호를' } })
-            }
-            if (userData.pw !== userData.pwc) {
+            if (userData.pw === '' || userData.pw !== userData.pwc) {
                 blockTogleHandelr()
                 return navigate('', { state: { message: '비밀번호를' } })
             }
@@ -99,6 +91,10 @@ const SignUp = () => {
         welcomeTogle ? navigate('/') : setWelcomeTogle(!welcomeTogle)
     }
 
+    if (localStorage.currentId !== 'null') {
+       return alert('이미 로그인 상태입니다')
+    }
+
     return (
         <div className="sign_up">
             {blockTogle &&
@@ -109,7 +105,7 @@ const SignUp = () => {
             }
             {welcomeTogle &&
                 <>
-                    <WelcomeMessage blockTogleHandelr={welcomeTogleHandler} />
+                    <WelcomeMessage blockTogleHandelr={welcomeTogleHandler} message={'가입'} />
                     <BlockDisplay block={welcomeTogleHandler} height={111} />
                 </>
             }

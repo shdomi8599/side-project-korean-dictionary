@@ -1,6 +1,6 @@
 import './App.css';
 import './bootstrap.min.css'
-import React from 'react';
+import React, { useState } from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Board from './pages/Board';
 import Login from './pages/Login';
@@ -10,15 +10,19 @@ import MyFeedback from './pages/MyFeedback';
 import ChampFeedback from './pages/ChampFeedback';
 import AllNav from './components/AllNav';
 
-
 function App({ champData, backImg }) {
-  
+
+  const [login, setLogin] = useState(false);
+
+  const loginHandler = () => {
+    setLogin(!login)
+  }
 
   return (
     <BrowserRouter>
-      <AllNav />
+      <AllNav login={login} />
       <Routes>
-        <Route path='/' element={<Home champData={champData} backImg={backImg} />} />
+        <Route path='/' element={<Home champData={champData} backImg={backImg} loginHandler={loginHandler} />} />
         <Route path='/champFeedback/:id' element={<ChampFeedback />} />
         <Route path='/signUp' element={<SignUp />} />
         <Route path='/login' element={<Login />} />
@@ -29,6 +33,6 @@ function App({ champData, backImg }) {
   );
 }
 
-export default React.memo(App);
+export default App;
 
 

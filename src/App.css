@@ -850,7 +850,6 @@ button:active {
 
 .sign_up_box {
   box-shadow: 0px 0px 20px 20px rgb(7, 7, 7);
-
   width: 40vw;
   height: 70vh;
   background-color: rgba(224, 216, 216, 0.95);
@@ -927,6 +926,8 @@ button:active {
   text-align: center;
   background-color: rgb(43, 41, 41);
   color: white;
+  border: 1px solid black;
+  box-shadow: 0px 0px 20px 20px rgb(7, 7, 7);
 }
 
 .block_message div {
@@ -937,11 +938,11 @@ button:active {
 
 .welcome_message{
   position: absolute;
-  top: 40%;
-  left: 40%;
+  top: 30%;
+  left: 38%;
   z-index: 3;
   border-radius: 10px;
-  width: 400px;
+  width: 480px;
   height: 200px;
   display: flex;
   flex-direction: column;
@@ -950,8 +951,93 @@ button:active {
   text-align: center;
   background-color: rgb(43, 41, 41);
   color: white;
+  border: 1px solid black;
+  box-shadow: 0px 0px 20px 20px rgb(7, 7, 7);
+  font-size: 20px;
+}
+
+.welcome_message div{
+  padding: 10px;
 }
 
 .block_message div {
   padding: 10px 0;
+}
+
+/* login */
+
+.login{
+  position: absolute;
+  top: 35%;
+  left: 38.5%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 280px;
+  width: 500px;
+  flex-direction: column;
+  background-color: rgb(43, 41, 41);
+  color: white;
+  border-radius: 8px;
+  box-shadow: 0px 0px 20px 20px rgb(7, 7, 7);
+  z-index: 2;
+  font-size: 18px;
+}
+
+.login_welcome{
+  flex: 0.5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  width: 90%;
+  margin-top: 10px;
+  background-color: rgb(0, 0, 0);
+  color: white;
+  font-size: 25px;
+}
+
+.login_box{
+  width: 100%;
+  flex: 3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login_input_box{
+  flex: 2;
+  margin-left: 10px;
+}
+
+.login_btn_box{
+  flex: 1;
+}
+
+.login_btn_box button {
+  border-radius: 10px;
+}
+
+.login_input {
+  flex: 1;
+  width: 90%;
+  padding: 12px;
+  display: flex;
+  align-items: center;
+}
+
+.login_input_text{
+  min-width: 80px;
+
+}
+
+.login_input input {
+  border-bottom: none;
+  border-left: none;
+  border-right: none;
+  border-top: 1px solid rgba(170, 164, 164, 0.8);
+}
+
+#login_back{
+  background-image: url('../src/img/c-o-runeterra-demacia-03.jpg');
 }
