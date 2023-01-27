@@ -1,9 +1,8 @@
-import { useRef } from "react"
 import BlockDisplay from "./BlockDisplay"
 
 const FeedbackText = ({ feedbackTextInput, feedbackText, textTogle, textTogleHandler, id }) => {
 
-    //피드백 텍트스가 비었는 지 확인하기 위한 코드    
+    //피드백 텍스트가 비었는 지 확인하기 위한 코드    
     if (feedbackText.trim() === '') {
         window.localStorage.removeItem(`feedText${id}`);
         feedbackTextInput('피드백을 적어주세요!')

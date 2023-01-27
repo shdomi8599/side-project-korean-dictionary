@@ -8,7 +8,7 @@ import PushMessage from "./PushMessage";
 
 const MyFeedbackCard = ({ id, champData, height }) => {
     const navigate = useNavigate();
-    
+
     //현재 선택된 챔피언의 키와 id가 일치하는지 확인해서 챔피언 데이터를 추출하는 코드
     const [myChamp] = champData.filter(champ => champ.key === id)
 
@@ -46,23 +46,34 @@ const MyFeedbackCard = ({ id, champData, height }) => {
         setPushMessage(x)
     }
 
+
+    //공유하기를 위한 코드
+    const spell1 = JSON.parse(localStorage.getItem(`spell1${id}`))
+    const spell2 = JSON.parse(localStorage.getItem(`spell2${id}`))
+    const itemId = JSON.parse(localStorage.getItem(`item${id}`))
+    const feedTextId = JSON.parse(localStorage.getItem(`feedText${id}`))
+
+    let shareDataObj = {
+        spell1: spell1,
+        spell2: spell2,
+        itemId: itemId,
+        feedTextId: feedTextId,
+        key: id,
+        id: '비회원',
+        pushText: pushMessage
+    }
+
+
     //공유하기를 실행하면 작동하는 코드
     const shareBtn = () => {
         setPushTogle(!pushTogle)
         let shareDataArr;
-        const spell1 = JSON.parse(localStorage.getItem(`spell1${id}`))
-        const spell2 = JSON.parse(localStorage.getItem(`spell2${id}`))
-        const itemId = JSON.parse(localStorage.getItem(`item${id}`))
-        const feedTextId = JSON.parse(localStorage.getItem(`feedText${id}`))
 
-        const shareDataObj = {
-            spell1: spell1,
-            spell2: spell2,
-            itemId: itemId,
-            feedTextId: feedTextId,
-            key: id,
-            id: 'shdomi',
-            pushText: pushMessage
+        if(localStorage.currentId !=='null'){
+            shareDataObj = {
+              ...shareDataObj,
+                id: JSON.parse(localStorage.currentId),
+            }
         }
 
         if (localStorage.getItem('shareData') === null) {

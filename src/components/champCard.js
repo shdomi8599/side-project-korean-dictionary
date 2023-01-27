@@ -1,4 +1,4 @@
-import { useNavigate, useSearchParams } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 import React from "react"
 
 const ChampCard = ({ PickChamp, }) => {

@@ -9,6 +9,9 @@ const BlockMessage = ({ blockTogleHandelr }) => {
             {location.state.message==='다음에 다시 만나요!'?
             '다음에 다시 만나요!'
             :
+            location.state.message==='회원가입을 진행해주세요.'?
+            '회원가입을 진행해주세요.'
+            :
             <>
             {location.state.message} 확인해주세요.
             </>

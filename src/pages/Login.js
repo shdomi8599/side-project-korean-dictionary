@@ -33,23 +33,20 @@ const Login = () => {
         setWelcome(!welcome)
     }
 
-    if (localStorage.currentId !== 'null') {
-        return alert('이미 로그인 상태입니다')
-    }
-
     //로그인을 시도할 떄를 위한 코드
     const loginEvent = () => {
+        if(localStorage.userData ===undefined){
+            blockMessageHandelr()
+            return navigate('', { state: { message: '회원가입을 진행해주세요.' } })
+        }   
         if (JSON.parse(localStorage.userData).filter(x => x.id === idVal && x.pw === pwVal).length === 1) {
             welcomeHandelr()
         }
-        else if (JSON.parse(localStorage.userData).filter(x => x.id === idVal && x.pw === pwVal).length === 1) {
+        else if (JSON.parse(localStorage.userData).filter(x => x.id === idVal && x.pw !== pwVal).length === 1) {
             blockMessageHandelr()
             return navigate('', { state: { message: '비밀번호를' } })
-        }
-        else if (JSON.parse(localStorage.userData).filter(x => x.id === idVal && x.pw === pwVal).length === 1) {
-            blockMessageHandelr()
-            return navigate('', { state: { message: '아이디와 비밀번호를' } })
-        } else {
+        } 
+        else {
             blockMessageHandelr()
             return navigate('', { state: { message: '아이디와 비밀번호를' } })
         }
