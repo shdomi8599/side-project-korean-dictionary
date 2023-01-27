@@ -1,30 +1,11 @@
-import { useEffect, useRef, useState } from "react";
+import { useState } from "react";
 
 const SignUpDefalut = ({ value, type, userDataHandeler, pwCheckHandler, pwCheck }) => {
 
     // valChange를 통해 데이터에 맞는 이벤트핸들러를 부여하는 코드
     //원래는 상위 컴포넌트에서 내려보냈으나 랜더링 문제가 일어나서 하위로 내렸음.... 무조건 상위가 좋은게 아니었나봄
-    const [idData, setIdData] = useState('')
-    const [pwData, setPwData] = useState('')
-    const [pwcData, setPwcData] = useState('')
-    const [emailData, setEmailData] = useState('')
-
-    const handelerSet = {
-        id: (x) => {
-            setIdData(x)
-        },
-        pw: (x) => {
-            setPwData(x)
-        },
-        pwc: (x) => {
-            setPwcData(x)
-        },
-        email: (x) => {
-            setEmailData(x)
-        }
-    }
-
-    const valChange = handelerSet[value]
+    //깨달은점 : useState는 하층 기준에선 최대한 높게, 상층 기준에선 최대한 낮게해놔야 불필요한 상층 랜더링을 줄이고
+    //적절한 위치에서 자식 컴포넌트로 데이터를 전달할 수 있음
 
     //valObj를 통해 defaultVal를 각자 설정하고 각 데이터이름에 맞는 값을 저장하는 코드
     const valObj = {
@@ -40,7 +21,6 @@ const SignUpDefalut = ({ value, type, userDataHandeler, pwCheckHandler, pwCheck 
 
     const inputValHandler = (e) => {
         setInputVal(e.target.value)
-        valChange(e.target.value)
         userDataHandeler(e)
         if (value === 'pw') {
             pwCheckHandler(e)
@@ -48,7 +28,7 @@ const SignUpDefalut = ({ value, type, userDataHandeler, pwCheckHandler, pwCheck 
     }
     //유효성 메세지 표시 추가
     //만들면서 느끼는건데 이 부분은 컴포넌트화 시키는 바람에 일이 더 복잡해진 느낌이다.
-    //회원가입은 한 페이지안에서 구성하는게 좋을듯...? 
+    //회원가입은 한 페이지안에서 구성하는게 좋을수도...? 
     let valid = {
         enterId: '',
         enterPw: '',

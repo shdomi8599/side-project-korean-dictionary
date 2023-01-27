@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react"
+import React, { useState } from "react"
 import { useNavigate } from "react-router-dom";
 import BlockDisplay from "../components/BlockDisplay";
 import BlockMessage from "../components/BlockMessage";
@@ -22,6 +22,7 @@ const SignUp = () => {
             [e.target.name]: e.target.value
         })
     }
+
     console.log(userData)
 
     //버튼을 클릭하면 마지막으로 유효성 검사를 실행하고 데이터를 로컬에 저장하도록 도와주는 코드
