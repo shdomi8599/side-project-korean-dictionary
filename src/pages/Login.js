@@ -41,6 +41,7 @@ const Login = () => {
             return navigate('', { state: { message: '회원가입을 진행해주세요.' } })
         }   
         if (JSON.parse(localStorage.userData).filter(x => x.id === idVal && x.pw === pwVal).length === 1) {
+            
             welcomeHandelr()
         }
         else if (JSON.parse(localStorage.userData).filter(x => x.id === idVal && x.pw !== pwVal).length === 1) {
@@ -51,6 +52,7 @@ const Login = () => {
             blockMessageHandelr()
             return navigate('', { state: { message: '아이디와 비밀번호를' } })
         }
+
     }
 
     return <>

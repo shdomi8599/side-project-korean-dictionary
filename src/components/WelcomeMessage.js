@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom";
+import BlockDisplay from "./BlockDisplay";
 
 const WelcomeMessage = ({ message, idVal }) => {
     const navigate = useNavigate()
@@ -18,10 +19,12 @@ const WelcomeMessage = ({ message, idVal }) => {
             userDataArr.push({ id: idVal, isLogin: true })
             localStorage.setItem('checkLogin', JSON.stringify(userDataArr))
         }
-
-        btnEvent = () => { navigate('/') }
+        btnEvent = () => { 
+            navigate('/') }
     }
-    return <div className="welcome_message">
+    return<>
+    <BlockDisplay block={()=>{}} height={111}/>
+     <div className="welcome_message">
         <div>
             {message}을 환영합니다
         </div>
@@ -29,6 +32,7 @@ const WelcomeMessage = ({ message, idVal }) => {
             <button onClick={btnEvent}>확인</button>
         </div>
     </div>
+    </>
 }
 
 export default WelcomeMessage;

@@ -26,6 +26,7 @@ const SignUp = () => {
 
     //버튼을 클릭하면 마지막으로 유효성 검사를 실행하고 데이터를 로컬에 저장하도록 도와주는 코드
     const toLocal = (e) => {
+        e.preventDefault()
         //로컬데이터가 없다면
         if (localStorage.getItem('userData') === null) {
             if (userData.id === '') {
@@ -41,12 +42,13 @@ const SignUp = () => {
                 return navigate('', { state: { message: '이메일을' } })
             }
             localStorage.setItem('userData', JSON.stringify([userData]))
-            e.preventDefault()
+
             welcomeTogleHandler()
 
         }
         //로컬데이터가 있다면
         else {
+            e.preventDefault()
             if (userData.id === '' ||
                 JSON.parse(localStorage.userData).filter(x => x.id === userData.id).length !== 0) {
                 blockTogleHandelr()
@@ -63,7 +65,6 @@ const SignUp = () => {
             const userDataAdd = JSON.parse(localStorage.userData)
             userDataAdd.push(userData)
             localStorage.setItem('userData', JSON.stringify(userDataAdd))
-            e.preventDefault()
             welcomeTogleHandler()
         }
     }
@@ -100,7 +101,6 @@ const SignUp = () => {
             {welcomeTogle &&
                 <>
                     <WelcomeMessage blockTogleHandelr={welcomeTogleHandler} message={'가입'} />
-                    <BlockDisplay block={welcomeTogleHandler} height={111} />
                 </>
             }
             <form className="sign_up_box">
