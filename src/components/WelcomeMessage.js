@@ -18,7 +18,8 @@ const WelcomeMessage = ({ message, idVal }) => {
             userDataArr.push({ id: idVal, isLogin: true })
             localStorage.setItem('checkLogin', JSON.stringify(userDataArr))
         }
-        btnEvent = () => { navigate('/', { state: { id: idVal, isLogin: true } }) }
+
+        btnEvent = () => { navigate('/') }
     }
     return <div className="welcome_message">
         <div>

@@ -58,7 +58,7 @@ const SignUpDefalut = ({ value, type, userDataHandeler, pwCheckHandler, pwCheck 
             {defaultVal}
         </div>
         <div id="input_box">
-            <input className="sign_up_input" type={type} name={value} value={inputVal} onChange={inputValHandler} />
+            <input className="sign_up_input" type={type} name={value} value={inputVal}  autoComplete='off' onChange={inputValHandler} />
             <div id="validity_test_message">
                 {valid.sameId}
                 {valid.enterId}

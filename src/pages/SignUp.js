@@ -9,10 +9,6 @@ const SignUp = () => {
 
     const navigate = useNavigate();
 
-    // if(checkLogin){
-    //     alert('이미 로그인 상태입니다')
-    // }
-
     //데이터를 입력하면 저장하도록 도와주는 코드
     const [userData, setUserData] = useState({
         id: '',
@@ -29,7 +25,7 @@ const SignUp = () => {
     }
 
     //버튼을 클릭하면 마지막으로 유효성 검사를 실행하고 데이터를 로컬에 저장하도록 도와주는 코드
-    const toLocal = () => {
+    const toLocal = (e) => {
         //로컬데이터가 없다면
         if (localStorage.getItem('userData') === null) {
             if (userData.id === '') {
@@ -45,6 +41,7 @@ const SignUp = () => {
                 return navigate('', { state: { message: '이메일을' } })
             }
             localStorage.setItem('userData', JSON.stringify([userData]))
+            e.preventDefault()
             welcomeTogleHandler()
 
         }
@@ -66,6 +63,7 @@ const SignUp = () => {
             const userDataAdd = JSON.parse(localStorage.userData)
             userDataAdd.push(userData)
             localStorage.setItem('userData', JSON.stringify(userDataAdd))
+            e.preventDefault()
             welcomeTogleHandler()
         }
     }
@@ -91,10 +89,6 @@ const SignUp = () => {
         welcomeTogle ? navigate('/') : setWelcomeTogle(!welcomeTogle)
     }
 
-    if (localStorage.currentId !== 'null') {
-       return alert('이미 로그인 상태입니다')
-    }
-
     return (
         <div className="sign_up">
             {blockTogle &&
@@ -109,7 +103,7 @@ const SignUp = () => {
                     <BlockDisplay block={welcomeTogleHandler} height={111} />
                 </>
             }
-            <div className="sign_up_box">
+            <form className="sign_up_box">
                 <div className="sign_up_content" id="sign_up_welcome_box">
                     <div id="sign_up_welcome">
                         정보입력
@@ -122,7 +116,7 @@ const SignUp = () => {
                 <div className="sign_up_content" id="sign_up_btn_box">
                     <button onClick={toLocal}>가입하기</button>
                 </div>
-            </div>
+            </form>
             <div className="back_img" id="sign_back"></div>
         </div>
     )

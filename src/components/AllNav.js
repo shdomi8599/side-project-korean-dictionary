@@ -5,7 +5,7 @@ import BlockDisplay from "./BlockDisplay";
 import BlockMessage from "./BlockMessage";
 
 
-const AllNav = ({ login }) => {
+const AllNav = () => {
 
     //모든 피드백 삭제 버튼을 위한 코드
     const [resetTogle, setResetTogle] = useState(false);
@@ -23,7 +23,7 @@ const AllNav = ({ login }) => {
 
     //로그아웃 이벤트
     const logoutEvent = () => {
-        localStorage.setItem('currentId', JSON.stringify(null))
+        localStorage.removeItem('checkLogin')
         setBlock(!block)
     }
 
@@ -58,7 +58,7 @@ const AllNav = ({ login }) => {
                     <li className="nav-item">
                         <Link to={"/board"} className="nav-link active"><span>피드백 공유하기</span></Link>
                     </li>
-                    {localStorage.currentId === 'null' ?
+                    {localStorage.checkLogin === undefined ?
                         <>
                             <li className="nav-item">
                                 <Link to={"/login"} className="nav-link active"><span>로그인</span></Link>

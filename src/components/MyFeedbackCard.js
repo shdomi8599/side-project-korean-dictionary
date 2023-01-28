@@ -69,10 +69,10 @@ const MyFeedbackCard = ({ id, champData, height }) => {
         setPushTogle(!pushTogle)
         let shareDataArr;
 
-        if(localStorage.currentId !=='null'){
+        if (localStorage.checkLogin !== undefined) {
             shareDataObj = {
-              ...shareDataObj,
-                id: JSON.parse(localStorage.currentId),
+                ...shareDataObj,
+                id: JSON.parse(localStorage.checkLogin)[0].id,
             }
         }
 

@@ -34,7 +34,8 @@ const Login = () => {
     }
 
     //로그인을 시도할 떄를 위한 코드
-    const loginEvent = () => {
+    const loginEvent = (e) => {
+        e.preventDefault()
         if(localStorage.userData ===undefined){
             blockMessageHandelr()
             return navigate('', { state: { message: '회원가입을 진행해주세요.' } })
@@ -60,7 +61,7 @@ const Login = () => {
             <div className="login_welcome">
                 로그인
             </div>
-            <div className="login_box">
+            <form className="login_box">
                 <div className="login_input_box">
                     <div className="login_input">
                         <div className="login_input_text">
@@ -75,14 +76,14 @@ const Login = () => {
                             비밀번호
                         </div>
                         <div>
-                            <input type="password" name="pw" value={pwVal} onChange={pwValHandelr} />
+                            <input type="password" name="pw" value={pwVal} autoComplete='off' onChange={pwValHandelr} />
                         </div>
                     </div>
                 </div>
                 <div className="login_btn_box">
                     <button onClick={loginEvent}>확인</button>
                 </div>
-            </div>
+            </form>
         </div>
         <div className="back_img" id="login_back"></div>
     </>
