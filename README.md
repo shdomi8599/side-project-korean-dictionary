@@ -1,70 +1,69 @@
-# Getting Started with Create React App
+# LOL 나만의 피드백
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+이 프로젝트는 리그 오브 레전드 게임에서 챔피언별로 피드백을 손쉽게 기록할 수 있도록 도와주는 프로젝트입니다.
 
-## Available Scripts
+## 기능 소개
 
-In the project directory, you can run:
+### `1`.랜덤 배경
+최초 홈 화면에 접근할 때, 랜덤으로 배경이 변경됩니다.
 
-### `npm start`
+![1 랜덤 배경-min](https://user-images.githubusercontent.com/117655658/229352575-7425d824-874f-4c29-98d8-15746db401d6.gif)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### `2`.캐릭터 선택
+홈 화면에서 캐릭터 카드를 선택하면 해당 챔피언의 피드백을 작성할 수 있는 페이지로 이동합니다.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+![2 캐릭터 선택-min](https://user-images.githubusercontent.com/117655658/229353174-92305879-2716-419d-add4-62bc10f13c2b.gif)
 
-### `npm test`
+### `3-(1)`.피드백 스펠 선택
+챔피언에 사용할 스펠을 선택할 수 있습니다.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+![3-(1) 스펠 선택-min](https://user-images.githubusercontent.com/117655658/229353276-5a46a705-8c05-4526-ab6a-8efdc908c3d8.gif)
 
-### `npm run build`
+### `3-(2)`.피드백 아이템 선택
+챔피언에 사용할 아이템을 선택할 수 있습니다.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+![3-(2) 아이템 선택-min](https://user-images.githubusercontent.com/117655658/229353298-d24a8063-8033-4462-a7ea-84b079b8bd40.gif)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### `3-(3)`.피드백 메세지 등록,수정
+챔피언에 해당하는 피드백 메세지를 등록하고 수정할 수 있습니다.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+![3-(3) 피드백 등록-min](https://user-images.githubusercontent.com/117655658/229353331-ad7cbf98-d021-4765-be34-14537f7b7295.gif)
 
-### `npm run eject`
+### `3-(4)`.피드백 초기화
+작성한 피드백을 초기화할 수 있습니다.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+![3-(4) 피드백 초기화-min](https://user-images.githubusercontent.com/117655658/229353361-1c5b62d9-50dd-420f-be22-e38777a4e292.gif)
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### `4-(1)`.나만의 피드백 조회
+챔피언별 피드백 페이지에서 작성한 피드백을 나만의 피드백 페이지에서 한 번에 조회할 수 있습니다.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+![4-(1) 나만의 피드백 조회-min](https://user-images.githubusercontent.com/117655658/229353409-75c51106-a514-48fa-af25-f919a66b9f15.gif)
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### `4-(2)`.나만의 피드백 삭제
+나만의 피드백 페이지에서 피드백을 삭제할 수 있습니다.
 
-## Learn More
+![4-(2) 나만의 피드백 삭제-min](https://user-images.githubusercontent.com/117655658/229353431-6dff9548-eae2-4754-a5f3-ae262afd1698.gif)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### `4-(2)`.나만의 피드백 공유
+나만의 피드백 페이지에서 피드백을 공유할 수 있습니다.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+![4-(3) 나만의 피드백 공유-min](https://user-images.githubusercontent.com/117655658/229353449-1b9e78ee-73b7-4102-9f57-a9eb700ef628.gif)
 
-### Code Splitting
+### `5`.공유된 피드백 조회
+다른 사람이 공유한 피드백을 조회하고 추천할 수 있습니다.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+![5 공유된 피드백 조회-min](https://user-images.githubusercontent.com/117655658/229353506-fad68f42-903e-4f71-8335-141da02f43e5.gif)
 
-### Analyzing the Bundle Size
+### `6`.회원가입
+회원가입 페이지에서 아이디, 비밀번호, 이메일을 입력하여 회원가입을 할 수 있습니다. 
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+이미 존재하는 아이디 또는 이메일은 사용할 수 없습니다.
 
-### Making a Progressive Web App
+![6 회원가입-min](https://user-images.githubusercontent.com/117655658/229353577-7833c0f4-8ed0-477c-bf55-f25af7738586.gif)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+### `7`.로그인, 로그아웃
+로그인 페이지에서 아이디와 비밀번호를 통해 로그인 할 수 있습니다.
 
-### Advanced Configuration
+네비바의 로그아웃 버튼을 누르면 로그아웃을 할 수 있습니다.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+![7 로그인,로그아웃-min](https://user-images.githubusercontent.com/117655658/229353623-fbcc025e-3d7b-48e7-b324-9e00262f4b99.gif)
